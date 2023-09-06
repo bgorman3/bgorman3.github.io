@@ -21,6 +21,8 @@ ul {
     text-align: left;
     margin-left: 0;
     padding-left: 0;
+    margin-left: 1in;  
+   margin-right: 1in; 
 }
 li::before {
     content: "•";
