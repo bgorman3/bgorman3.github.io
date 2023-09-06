@@ -15,8 +15,11 @@ h1 {
    margin-right: 1in; 
 }
 
-
+ul{
+    padding-left: 20px;
+}
 ul {
+    
     list-style: none;
     text-align: left;
     margin-left: 0;
