@@ -1,14 +1,18 @@
 body{
     background-color: rgb(173, 238, 158);
     text-align: center;
+
+        
+        
+    
 }
 
 
 h1 {
     font-size: 40px;
     font-weight: bold;
-   
-    
+   margin-left: 1in;  
+   margin-right: 1in; 
 }
 
 
