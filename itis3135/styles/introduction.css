@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(173, 238, 158);
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+   
+    
+}
+
+
+ul {
+    list-style: none;
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+}
+li::before {
+    content: "•";
+    font-weight: bold;
+    margin-right: 5px;
+}
+.image-caption {
+    font-style: italic;
+}
+
+
+
+
+
