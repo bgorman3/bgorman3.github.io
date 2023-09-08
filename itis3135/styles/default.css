@@ -1,42 +1,96 @@
-body{
+body {
     background-color: rgb(173, 238, 158);
-    text-align: center;
-
-        
-        
+    text-align: left;
     
 }
 
+header {
+    background-color: #ddebdd; /* Green background color */
+    color: black; /* Text color on the header */
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    margin: 10px 0;
+}
 
 h1 {
-    font-size: 40px;
-    font-weight: bold;
-   margin-left: 1in;  
-   margin-right: 1in; 
+    font-size: 32px;
+    margin: 10px 0;
 }
 
-ul{
-    padding-left: 20px;
+nav a {
+    color: black; /* Default link text color */
+    margin: 0 10px;
+    transition: color 0.3s; /* Add a smooth color transition effect */
 }
-ul {
-    
-    list-style: none;
-    text-align: left;
-    margin-left: 0;
-    padding-left: 0;
-    margin-left: 1in;  
-   margin-right: 1in; 
+
+nav a:hover {
+    color: blue; /* Change the link text color to blue on hover */
+    text-decoration: underline; /* You can keep the underline effect if desired */
+    text-decoration-color: blue; /* You can specify the underline color if desired */
 }
-li::before {
-    content: "•";
-    font-weight: bold;
-    margin-right: 5px;
+
+main{
+    text-align: center;
 }
+
+h1 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+nav {
+    margin: 10px 0;
+}
+
+.main-content {
+    margin: 20px auto; /* Center the entire main content div horizontally */
+    max-width: 800px; /* Limit the width for better readability */
+    padding: 20px;
+    background-color: rgb(173, 238, 158);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.centered-content {
+    text-align: center; /* Center the content within the main-content div */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove any potential extra spacing below the image */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
 .image-caption {
     font-style: italic;
+    margin-top: 10px;
 }
 
+ul {
+    padding-left: 20px;
+}
 
+ul li {
+    margin-bottom: 10px;
+}
 
+ul ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
 
+ul ul li {
+    margin-bottom: 5px;
+}
+footer{
+    text-align: center;
+}
+.validator-logos {
+    display: inline-block; /* Make the validator logos display inline */
+    margin-left: 20px; /* Add some spacing between the logos and the navigation links */
+}
 
