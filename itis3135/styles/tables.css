@@ -1,0 +1,36 @@
+/* Style for the top row (headers) of the tables */
+table th {
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    padding: 10px; /* Spacing around header content */
+}
+
+/* Style for alternating rows (light and dark) */
+table tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light background color */
+}
+
+table tr:nth-child(even) {
+    background-color: #dddddd; /* Dark background color */
+}
+
+/* Add more styles as needed */
+
+/* Center text in table cells */
+table td, table th {
+    text-align: center;
+}
+
+/* Style for the caption under the figure */
+figure {
+    text-align: center;
+}
+
+/* Style for the bottom row */
+table tfoot th {
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    padding: 10px; /* Spacing around footer content */
+}
+
+/* Add more styles as needed */

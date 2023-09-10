@@ -1,0 +1,12 @@
+/* Add this CSS to your styles.css file */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+/* Add more styling as needed */
