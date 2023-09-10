@@ -90,6 +90,7 @@ footer{
     text-align: center;
 }
 .validator-logos {
+    text-align: left;
     display: inline-block; /* Make the validator logos display inline */
     margin-left: 20px; /* Add some spacing between the logos and the navigation links */
 }
