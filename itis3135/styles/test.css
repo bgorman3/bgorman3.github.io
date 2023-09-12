@@ -1,0 +1,14 @@
+body {
+    
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    display: inline-block; /* Make anchor elements block-level to control width */
+    margin: 10px; /* Adjust margin as needed to add space between the elements */
+}

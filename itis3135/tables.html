@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tables Assignment</title>
-    <link rel="stylesheet" href="tables.css"> <!-- Link to your CSS file -->
+    <title>Brendan Gorman || ITIS 3135 Table Page</title>
+    <link rel="stylesheet" href="styles/tables.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
-        <h1>Course Name - Your Name</h1>
+        
+        <h1>Brendan Gorman || Greedy Goblins || ITIS 3135</h1>
+    </div>
+    <div class="header-right">
         <nav>
-            <!-- Add your navigation menu here -->
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tables.html">Tables</a></li>
-                <!-- Add other menu items as needed -->
-            </ul>
+            <a href="./">Homepage</a> ||
+            <a href="introduction.html">Introduction</a> ||
+            <a href="contract.html">Contract</a> ||
+            <a href="forms.html">Forms</a> ||
+            <a href="tables.html">Tables</a> ||
+            <a href="/">Back to Main Site</a>
         </nav>
+    </div>
     </header>
-
     <main>
         <h2>HTML Tables Assignment</h2>
         <!-- Add content here for Parts 2, 3, and 4 -->
         <h3>My Tabular Data</h3>
 <ol>
-    <li>First Last - email@example.com - 10</li>
-    <li>Second Last - email@example.com - 5</li>
-    <!-- Add more people as needed -->
+    <li>Brendan Gorman bgorman3@gormotechventures.net $199,999</li>
+    <li>Ian McCauley Iansux@gormotechventures.net $10</li>
+    <li>Mills Sullivan Generalmills@gormotechventures.net $15</li>
+    <li>Thomas Perry Tperry@gormotechventures.net $80,000</li>
+    <li>Ella Lisanti EL@gormotechventures.net $30</li>
+    <li>Bill Gates bigmoney@gormotechventures.net $85,000</li>
+    <li>Colleen Gorman cgormo@gormotechventures.net $78,000</li>
 </ol>
 <h3>Employee Data in Simple Table</h3>
 <table>
@@ -34,16 +41,58 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Years of Service</th>
+            <th>Salary</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>First Last</td>
-            <td>email@example.com</td>
-            <td>10</td>
+            <td>Brendan Gorman</td>
+            
+            <td>bgorman3@gormotechventures.net</td>
+            <td>$199,999</td>
         </tr>
-        <!-- Add more rows for other people -->
+        <tr>
+            <td>Ian McCauley</td>
+            
+            <td>Iansux@gormotechventures.net</td>
+            <td>$10</td>
+        </tr>
+        <tr>
+            <td>Mills Sullivan</td>
+            
+            <td>Generalmills@gormotechventures.net</td>
+            <td>$15</td>
+        </tr>
+        <tr>
+            <td>Thomas Perry</td>
+            
+            <td>Tperry@gormotechventures.net</td>
+            <td>$80,000</td>
+        </tr>
+        <tr>
+            <td>Ella Lisanti</td>
+            
+            <td>EL@gormotechventures.net</td>
+            <td>$30</td>
+        </tr>
+        <tr>
+            <td>Bill Gates</td>
+            
+            <td>bigmoney@gormotechventures.net</td>
+            <td>$85,000</td>
+        </tr>
+        <tr>
+            <td>Colleen Gorman</td>
+            
+            <td>cgormo@gormotechventures.net</td>
+            <td>$78,000</td>
+        </tr>
+       
+
+
+
+
+       
     </tbody>
 </table>
 <h3>Employee Data in Complex Table</h3>
@@ -60,22 +109,52 @@
         </thead>
         <tbody>
             <tr>
-                <td rowspan="2">Marketing</td>
-                <td>First Last</td>
-                <td>email@example.com</td>
-                <td>$5,000</td>
+                <td>CEO</td>
+                <td>Brendan Gorman</td>
+                <td>bgorman3@gormotechventures.net</td>
+                <td>$199,999</td>
             </tr>
             <tr>
-                <td>Second Last</td>
-                <td>email@example.com</td>
-                <td>$4,000</td>
+                <td rowspan="2">Janitorial Staff</td>
+                <td>Ian McCauley</td>
+                <td>Iansux@gormotechventures.net</td>
+                <td>$10</td>
             </tr>
-            <!-- Add more rows for other categories and people -->
+            <tr>
+                <td>Mills Sullivan</td>
+                <td>Generalmills@gormotechventures.net</td>
+                <td>$15</td>
+            </tr>
+            <tr>
+                <td rowspan="3">Marketing</td>
+                <td>Thomas Perry</td>
+                <td>Tperry@gormotechventures.net</td>
+                <td>$80,000</td>
+            </tr>
+            <tr>
+                
+                <td>Ella Lisanti</td>
+                <td>EL@gormotechventures.net</td>
+                <td>$30</td>
+            </tr>
+            <tr>
+                
+                <td>Bill Gates</td>
+                <td>bigmoney@gormotechventures.net</td>
+                <td>$85,000</td>
+            </tr>
+            <tr>
+                <td>Sales</td>
+                <td>Colleen Gorman</td>
+                <td>cgormo@gormotechventures.net</td>
+                <td>$78,000</td>
+            </tr>
+           
         </tbody>
         <tfoot>
             <tr>
-                <th colspan="3">Total Years of Service</th>
-                <th>15</th>
+                <th colspan="3">Total Annual Salary Budget:</th>
+                <th>$243,055</th>
             </tr>
         </tfoot>
     </table>
@@ -89,7 +168,31 @@
     </main>
 
     <footer>
-        <!-- Add your footer content here -->
+        <nav>
+            <a href="https://webpages.charlotte.edu/bgorman3">CLT Web</a> ||
+            <a href="https://github.com/bgorman3">Github</a> ||
+            <a href="https://github.com/bgorman3/bgorman3.github.io/tree/main">Github.io</a> ||
+            <a href="http://bgorman3.github.io">itis3135.io</a> ||
+            <a href="https://www.freecodecamp.org/bgorman3">FreeCodeCamp</a> ||
+            <a href="https://www.codecademy.com/profiles/bgorman3">Codeacdemy</a> ||
+            <a href="http://linkedin.com/in/brendan-gorman-0a0021279">Linkedin</a> 
+            </nav>
+    
+    
+    <nav>
+        <p>Page Built by <a href="gormotechventures.net">Gormo Tech Ventures</a> &copy; 2023</p>
+        <div class="image-container">
+            <a href="https://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px"
+                src="https://upload.wikimedia.org/wikipedia/commons/b/bb/W3C_HTML5_certified.png" alt="Valid HTML!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+            </a>
+        </div>
+    
+</nav>
     </footer>
 </body>
 </html>
