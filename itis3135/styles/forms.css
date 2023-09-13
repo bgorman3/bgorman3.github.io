@@ -26,5 +26,15 @@ input[type="radio"] {
     margin-right: 10px;
 }
 
-/* Apply more styles as needed */
-/* Add other CSS rules here */
+body {
+    background-color: rgb(173, 238, 158);
+    text-align: left;
+    
+}
+
+header {
+    background-color: #ddebdd; /* Green background color */
+    color: black; /* Text color on the header */
+    padding: 10px;
+    text-align: center;
+}
