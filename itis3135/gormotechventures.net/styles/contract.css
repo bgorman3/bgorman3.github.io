@@ -40,3 +40,30 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+
+.logo img {
+    /* Your CSS styles for the logo image go here */
+       
+    position: relative;
+    top: 4px; /* Move the image 20 pixels down */
+}
+
+
+/* Adjust line-height for better vertical alignment of text */
+.navbar a {
+    color: rgb(0, 0, 0);
+    margin: 0 0 x;
+   overflow: hidden;
+    line-height: 50px; /* Match the line height to the image height for vertical alignment */
+    font-size: 20px; /* Adjust the font size to make the text bigger */
+}
+
+/* Rest of your existing CSS */
+/* ... */
+li {
+    margin-right: 30px;
+    padding-right: 5px;
+    list-style-type: none;
+    float: right;
+  }
