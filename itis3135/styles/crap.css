@@ -20,5 +20,9 @@
 body {
     animation: flashingBackground 1s linear infinite; /* Change 5s to control the animation speed */
     font-family: fantasy;
-    
+
+}
+ul{
+    text-align: right;
+    font-size: 100px;
 }
