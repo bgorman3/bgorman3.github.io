@@ -2,33 +2,25 @@ body {
     background-color: rgb(173, 238, 158);
     font-family: Arial, Helvetica, sans-serif;
 }
-.header-right{
-    padding: 0%;
-}
+
 header {
     background-color: #ddebdd;
-    color: black;
-    padding: 10px;
+  
+   
     text-align: center;
 }
 
-nav a {
-    color: black;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
+
 
 nav a:hover {
     color: blue;
     text-decoration: underline;
 }
 
-h1 {
-    font-size: 32px;
-    margin: 10px 0;
-}
+
 main {
-    text-align: center;
+    margin: 10px 100px; 
+    line-height: 1.5; 
 }
 
 footer {
@@ -41,29 +33,52 @@ footer {
     align-items: center;
 }
 
+h2, h3 {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+.header-content {
+    background-color: #ddebdd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
 
 .logo img {
-    /* Your CSS styles for the logo image go here */
-       
     position: relative;
-    top: 4px; /* Move the image 20 pixels down */
+    top: 14px; 
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
 }
 
 
-/* Adjust line-height for better vertical alignment of text */
+
+
 .navbar a {
     color: rgb(0, 0, 0);
-    margin: 0 0 x;
-   overflow: hidden;
-    line-height: 50px; /* Match the line height to the image height for vertical alignment */
-    font-size: 20px; /* Adjust the font size to make the text bigger */
+    line-height: 50px;
+    font-size: 20px;
 }
-
-/* Rest of your existing CSS */
-/* ... */
-li {
-    margin-right: 30px;
-    padding-right: 5px;
-    list-style-type: none;
-    float: right;
-  }
