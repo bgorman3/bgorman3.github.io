@@ -1,16 +1,23 @@
 body {
-    background-color: rgb(173, 238, 158);
+    background-color: #C7F2A7;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
-    background-color: #ddebdd;
+    background-color: #F0EAD6;
   
    
     text-align: center;
 }
 
-
+.container {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Maximum width to limit content width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding to the container */
+    text-align: left; /* Align text to the left within the container */
+}
 
 nav a:hover {
     color: blue;

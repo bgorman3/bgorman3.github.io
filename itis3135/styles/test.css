@@ -1,14 +1,35 @@
-body {
-    
+/* Reset some default margin and padding */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
 }
 
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Center the container on the page */
+.container {
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Maximum width to limit content width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding to the container */
+    text-align: left; /* Align text to the left within the container */
 }
 
-a {
-    display: inline-block; /* Make anchor elements block-level to control width */
-    margin: 10px; /* Adjust margin as needed to add space between the elements */
+/* Style headings, paragraphs, and lists */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: disc; /* Use bullets for lists */
+    margin-left: 20px; /* Add some left margin to the list */
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 5px;
 }
