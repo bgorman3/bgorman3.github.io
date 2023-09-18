@@ -1,28 +1,63 @@
 
 @keyframes flashingBackground {
     0% {
-        background-color: rgb(255, 0, 0); /* Red */
+        background-color: rgb(255, 0, 0); 
     }
     25% {
-        background-color: rgb(0, 255, 0); /* Green */
+        background-color: rgb(0, 255, 0); 
     }
     50% {
-        background-color: rgb(0, 0, 255); /* Blue */
+        background-color: rgb(0, 0, 255); 
     }
     75% {
-        background-color: rgb(255, 255, 0); /* Yellow */
+        background-color: rgb(255, 255, 0); 
     }
     100% {
-        background-color: rgb(255, 0, 255); /* Magenta */
+        background-color: rgb(255, 0, 255); 
     }
 }
+
 
 body {
     animation: flashingBackground 1s linear infinite; /* Change 5s to control the animation speed */
-    font-family: fantasy;
+    
 
 }
-ul{
-    text-align: right;
-    font-size: 100px;
+body {
+    color: #999;
+    background-color: #f0f0f0;
+}
+
+/* Different margins */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Underlined text that isn't links */
+p {
+    text-decoration: underline;
+}
+
+/* Background color on text */
+h4 {
+    background-color: yellow;
+}
+
+/* Extra blank lines */
+br {
+    margin-bottom: 30px;
+}
+
+/* Repeated inline styles */
+h2 {
+    font-family: Comic Sans MS, Comic Sans;
+    margin-top: 200px;
+}
+
+/* Big border with different sides */
+figure {
+    border-top: 5px solid red;
+    border-right: 10px dotted blue;
+    border-bottom: 15px double green;
+    border-left: 20px dashed purple;
 }
