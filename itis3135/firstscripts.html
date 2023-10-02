@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brendan Gorman Greedy Goblins || ITIS 3135 || Home</title>
+    <title>Brendan Gorman Greedy Goblins || ITIS 3135 || Scripts</title>
     <link rel="stylesheet" href="styles/default.css">
    
 
@@ -27,14 +27,33 @@
     </header>
 
 <main>
-    <h2>Homepage</h2>
-     <p>In this page, you will find all my ITIS 3135 stuff</p>
-     <nav>
-        <a href="CrappyWebsite.html">My Crappy Website</a> 
-        <a href="websiteeval.html">My Website Evaluations</a> 
-        <a href="firstscripts.html">My Website Evaluations</a> 
-    </nav>
-  
+    <h2>Scripts Page</h2>
+    <h2 id="heading">Today is {day of week}, {date}</h2>
+    <h3 id="greeting"></h3>
+
+    <div>
+        <label for="name">Enter your name please  ....:      </label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="mood">How are you feeling today?</label>
+        <input type="text" id="mood">
+    </div>
+    <div>
+        <label for="favorite-number">Enter your favorite number:</label>
+        <input type="number" id="favorite-number">
+    </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="functions">
+      <button onclick="greetUser()">Greet User</button>
+      <button onclick="getFavoritePolygon()">Get Favorite Polygon</button>
+      <button onclick="provideInsult()">Provide Insult</button>
+      <button onclick="takeSumOfTwoNumbers()">Take Sum of Two Numbers</button>
+      <button onclick="calculateTax()">Calculate Tax</button>
+    </div>
     </main>
 
     <footer>
@@ -64,6 +83,7 @@
     
 </nav>
     </footer>
+    <script src="scripts/firstscripts.js"></script>
 </body>
 </html>
 
