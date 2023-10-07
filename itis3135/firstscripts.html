@@ -4,88 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brendan Gorman Greedy Goblins || ITIS 3135 || Scripts</title>
+    <title>Brendan Gorman || ITIS 3135 Contract</title>
     <link rel="stylesheet" href="styles/default.css">
-   
-
 </head>
 <body>
     <header>
-        
-        <h1>Brendan Gorman || Greedy Goblins || ITIS 3135</h1>
-    </div>
-    <div class="header-right">
-        <nav>
-            <a href="./">Homepage</a> ||
-            <a href="introduction.html">Introduction</a> ||
-            <a href="contract.html">Contract</a> ||
-            <a href="forms.html">Forms</a> ||
-            <a href="tables.html">Tables</a> ||
-            <a href="/">Back to Main Site</a>
-        </nav>
-    </div>
+        <script src="scripts/common.js"></script>
+        <script>
+            addHeader(); // Add the common header to the page
+        </script>
     </header>
 
-<main>
-    <h2>Scripts Page</h2>
-    <h2 id="heading">Today is {day of week}, {date}</h2>
-    <h3 id="greeting"></h3>
+    <main>
+        <h2>firstscripts</h2>
+        <h3 id="dateTime"></h3>
+        <div>
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="mood">How are you feeling today?</label>
+            <input type="text" id="mood">
+        </div>
+        <button onclick="greetUser()">Submit</button>
+        <p id="greeting"></p>
+        <div>
+            <label for="favorite-number">Enter your favorite number (0 to 10):</label>
+            <input type="number" id="favorite-number" min="0" max="10">
+        </div>
+        <button onclick="getPolygonName()">Get Polygon Name</button>
+        <p id="polygonName"></p>
 
-    <div>
-        <label for="name">Enter your name please  ....:      </label>
-        <input type="text" id="name">
-    </div>
-    <div>
-        <label for="mood">How are you feeling today?</label>
-        <input type="text" id="mood">
-    </div>
-    <div>
-        <label for="favorite-number">Enter your favorite number:</label>
-        <input type="number" id="favorite-number">
-    </div>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <div id="functions">
-      <button onclick="greetUser()">Greet User</button>
-      <button onclick="getFavoritePolygon()">Get Favorite Polygon</button>
-      <button onclick="provideInsult()">Provide Insult</button>
-      <button onclick="takeSumOfTwoNumbers()">Take Sum of Two Numbers</button>
-      <button onclick="calculateTax()">Calculate Tax</button>
-    </div>
+        <h3>Animal Brand Company Functions:</h3>
+        <button onclick="function1()">Function 1</button>
+        <button onclick="function2()">Function 2</button>
+        <button onclick="function3()">Function 3</button>
+        <button onclick="function4()">Function 4</button>
     </main>
 
     <footer>
-        <nav>
-            <a href="https://webpages.charlotte.edu/bgorman3">CLT Web</a> ||
-            <a href="https://github.com/bgorman3">Github</a> ||
-            <a href="https://github.com/bgorman3/bgorman3.github.io/tree/main">Github.io</a> ||
-            <a href="http://bgorman3.github.io">itis3135.io</a> ||
-            <a href="https://www.freecodecamp.org/bgorman3">FreeCodeCamp</a> ||
-            <a href="https://www.codecademy.com/profiles/bgorman3">Codeacdemy</a> ||
-            <a href="http://linkedin.com/in/brendan-gorman-0a0021279">Linkedin</a> 
-            </nav>
-    
-    
-    <nav>
-        <p>Page Built by <a href="gormotechventures.net">Gormo Tech Ventures</a> &copy; 2023</p>
-        <div class="image-container">
-            <a href="https://validator.w3.org/check?uri=referer">
-                <img style="border:0;width:88px;height:31px"
-                src="https://upload.wikimedia.org/wikipedia/commons/b/bb/W3C_HTML5_certified.png" alt="Valid HTML!">
-            </a>
-            <a href="https://jigsaw.w3.org/css-validator/check/referer">
-                <img style="border:0;width:88px;height:31px"
-                src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-            </a>
-        </div>
-    
-</nav>
+        
+        <script>
+            addFooter(); // Add the common header to the page
+        </script>
     </footer>
-    <script src="scripts/firstscripts.js"></script>
+
+    <script>
+        // Function to display date and time
+        function displayDateTime() {
+            const now = new Date();
+            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][now.getDay()];
+            const date = now.getDate();
+            const month = now.toLocaleString('default', { month: 'long' });
+            const year = now.getFullYear();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            
+            const dateTimeString = `Today is ${hours}:${minutes < 10 ? '0' : ''}${minutes} on ${dayOfWeek}, ${date} ${month}, ${year}`;
+            document.getElementById("dateTime").textContent = dateTimeString;
+        }
+        
+        // Function to greet the user
+        function greetUser() {
+            const name = document.getElementById("name").value;
+            const mood = document.getElementById("mood").value;
+            const greeting = document.getElementById("greeting");
+            greeting.textContent = `The Animal Brand Company welcomes you, ${name}! We're glad you are feeling ${mood}!`;
+        }
+        
+        // Function to get polygon name
+        function getPolygonName() {
+            let favoriteNumber = parseInt(document.getElementById("favorite-number").value);
+            if (isNaN(favoriteNumber)) {
+                favoriteNumber = 0;
+            }
+            favoriteNumber = Math.abs(favoriteNumber);
+            favoriteNumber = Math.round(favoriteNumber);
+            
+            const polygonNames = ["digon", "triangle", "quadrilateral", "pentagon", "hexagon", "heptagon", "octagon", "nonagon", "decagon"];
+            const polygonName = polygonNames[favoriteNumber];
+            
+            alert(`Your favorite polygon has ${favoriteNumber} sides, and it is called a ${polygonName}.`);
+        }
+
+        // Functions for Animal Brand Company
+        function function1() {
+            alert("Function 1: We provide the quirkiest animal-themed merchandise!");
+        }
+
+        function function2() {
+            alert("Function 2: Our animals can predict the weather. Ask us for today's forecast!");
+        }
+
+        function function3() {
+            alert("Function 3: We offer pet psychic readings. Find out what your pet is thinking!");
+        }
+
+        function function4() {
+            alert("Function 4: Our animals are trained to do stand-up comedy. Get ready to laugh!");
+        }
+
+        // Call displayDateTime function when the page loads
+        displayDateTime();
+    </script>
 </body>
 </html>
-
-
-
