@@ -10,13 +10,16 @@
 <body>
     <header>
         <script src="scripts/common.js"></script>
+        <script src="scripts/firstscripts.js"></script>
         <script>
             addHeader(); // Add the common header to the page
         </script>
     </header>
 
     <main>
-        <h2>firstscripts</h2>
+
+
+        <h2>FirstScripts</h2>
         <h3 id="dateTime"></h3>
         <div>
             <label for="name">Enter your name:</label>
@@ -35,11 +38,24 @@
         <button onclick="getPolygonName()">Get Polygon Name</button>
         <p id="polygonName"></p>
 
-        <h3>Animal Brand Company Functions:</h3>
+        <h3>GreedyGoblins Company Functions:</h3>
         <button onclick="function1()">Function 1</button>
         <button onclick="function2()">Function 2</button>
         <button onclick="function3()">Function 3</button>
         <button onclick="function4()">Function 4</button>
+
+
+        <script>
+            displayDateTime(); // Call the displayDateTime function
+            greetUser(); // Call the greetUser function
+            getPolygonName(); // Call the getPolygonName function
+            calculateTax();
+            takeSumOfTwoNumbers();
+            provideInsult();
+            // Add more function calls here if needed
+        </script>
+
+
     </main>
 
     <footer>
@@ -48,64 +64,6 @@
             addFooter(); // Add the common header to the page
         </script>
     </footer>
-
-    <script>
-        // Function to display date and time
-        function displayDateTime() {
-            const now = new Date();
-            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][now.getDay()];
-            const date = now.getDate();
-            const month = now.toLocaleString('default', { month: 'long' });
-            const year = now.getFullYear();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            
-            const dateTimeString = `Today is ${hours}:${minutes < 10 ? '0' : ''}${minutes} on ${dayOfWeek}, ${date} ${month}, ${year}`;
-            document.getElementById("dateTime").textContent = dateTimeString;
-        }
-        
-        // Function to greet the user
-        function greetUser() {
-            const name = document.getElementById("name").value;
-            const mood = document.getElementById("mood").value;
-            const greeting = document.getElementById("greeting");
-            greeting.textContent = `The Animal Brand Company welcomes you, ${name}! We're glad you are feeling ${mood}!`;
-        }
-        
-        // Function to get polygon name
-        function getPolygonName() {
-            let favoriteNumber = parseInt(document.getElementById("favorite-number").value);
-            if (isNaN(favoriteNumber)) {
-                favoriteNumber = 0;
-            }
-            favoriteNumber = Math.abs(favoriteNumber);
-            favoriteNumber = Math.round(favoriteNumber);
-            
-            const polygonNames = ["digon", "triangle", "quadrilateral", "pentagon", "hexagon", "heptagon", "octagon", "nonagon", "decagon"];
-            const polygonName = polygonNames[favoriteNumber];
-            
-            alert(`Your favorite polygon has ${favoriteNumber} sides, and it is called a ${polygonName}.`);
-        }
-
-        // Functions for Animal Brand Company
-        function function1() {
-            alert("Function 1: We provide the quirkiest animal-themed merchandise!");
-        }
-
-        function function2() {
-            alert("Function 2: Our animals can predict the weather. Ask us for today's forecast!");
-        }
-
-        function function3() {
-            alert("Function 3: We offer pet psychic readings. Find out what your pet is thinking!");
-        }
-
-        function function4() {
-            alert("Function 4: Our animals are trained to do stand-up comedy. Get ready to laugh!");
-        }
-
-        // Call displayDateTime function when the page loads
-        displayDateTime();
-    </script>
+    
 </body>
 </html>
