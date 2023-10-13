@@ -1,90 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alert Box Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connor Wilson Photography</title>
+  <link rel="stylesheet" href="test.css">
 </head>
 <body>
-    <header>
-       
-            <nav class="navbar">
-                <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Brendan Gorman</a>
-                </div>
-                <ul class="nav navbar-nav">
-                  <li><a href="#">Homepage</a></li>
-                  <li><a href="#">Introduction</a></li>
-                  <li><a href="#">Contract</a></li>
-                  <li><a href="#">Forms</a></li>
-                  <li><a href="#">Tables</a></li>
-                  <li><a href="#">Back to Main Site</a></li>
-                </ul>
-              </nav>
-    </header>
-
-    <main>
-        <h1>Website Evaluations</h1>
-
-        <section>
-         
-
-
-<h3><a href="https://www.svz.io/">svz.io</a></h3>
-<p>SVZ is a company that does webflow development, as you can tell. They have one of the best-designed websites I've seen.  </p>
-<ul>
-<li>Contrast: Every single color they use is simple: black and white, black, yellow, and green. Black goes well with any color on the webpage; there isn't a single color that doesn't fit.</li>
-<li>Repetition: Every element and font are the same, and it fits well at any resolution, whether it's on mobile or scrunched. The website fits so well.</li>
- <li>Alignment: The structure of the page is arguably its strongest point. Everything is in a grid, and your eyes slowly follow the page down, reading box by box. </li>
-<li>Proximity: The elements that are related are always right next to each other, and it's super easy to read because everything fits. </li>
-</ul>
-<p>This website follows every crap element perfectly, and you can see why they work in web development. It's hard to be a web development company with a poor-looking website. </p>
- </section>
-
-
-
-
-        <section>
-          <h3><a href="https://www.zara.com/us/">zara.com</a></h3>
-            <p>This website is hard to look at. It's a clothing website for fashion designers, but everything feels very half-hazardously placed and out of line. There are many different types of clothing for men, women, and kids, but it's hard to click on because it keeps jumping around. </p>
-            <ul>
-            <li>Contrast: The contrast is decent with the white menus and dark photos, but the text stands out. </li>
-             <li>Repetition: This entire website has no repetition; I feel as if there are just random fonts, colors, and pictures everywhere; nothing is organized. </li>
-        <li>Alignment: The alignment is weird; there is a nav bar, but it's on the left, and the search bar is just randomly placed; it doesn't fit overall; there is no alignment for elements. </li>
-         <li>Proximity: There is a large amount of empty space everywhere on this page, and it doesn't feel well placed. </li>
-        </ul>
-         <p>This website does not follow CRAP principles. I can see that they tried to be different and have a stylized page, but overall it just looks bad. </p>
-     </section>
-    </main>
-
-    <footer>
-        <nav>
-            <a href="https://webpages.charlotte.edu/bgorman3">CLT Web</a> ||
-            <a href="https://github.com/bgorman3">Github</a> ||
-            <a href="https://github.com/bgorman3/bgorman3.github.io/tree/main">Github.io</a> ||
-            <a href="http://bgorman3.github.io">itis3135.io</a> ||
-            <a href="https://www.freecodecamp.org/bgorman3">FreeCodeCamp</a> ||
-            <a href="https://www.codecademy.com/profiles/bgorman3">Codeacdemy</a> ||
-            <a href="http://linkedin.com/in/brendan-gorman-0a0021279">Linkedin</a> 
-            </nav>
-    
-    
+  <header>
+    <h1>Connor Wilson Photography</h1>
     <nav>
-        <p>Page Built by <a href="gormotechventures.net">Gormo Tech Ventures</a> &copy; 2023</p>
-        <div class="image-container">
-            <a href="https://validator.w3.org/check?uri=referer">
-                <img style="border:0;width:88px;height:31px"
-                src="https://upload.wikimedia.org/wikipedia/commons/b/bb/W3C_HTML5_certified.png" alt="Valid HTML!">
-            </a>
-            <a href="https://jigsaw.w3.org/css-validator/check/referer">
-                <img style="border:0;width:88px;height:31px"
-                src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-            </a>
-        </div>
-    
-</nav>
-    </footer>
-  <script>
-    alert('Hello, world!');
-    alert("yous a bitch")
-  </script>
+      <a href="#">Work</a>
+      <a href="#">Personal</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>Hi, I'm Connor Wilson! I'm a photographer based out of Cary, NC. I've been building my skillsets since 2021, all while enjoying the process, meeting new people, and getting to witness some awesome cars. Car photography for me is awesome because I believe it allows me to be truly creative. In doing so-it captures what we enthusiasts really love, whether that be some aggressive styling, old-school nostalgia, or some pure tire-shredding madness, the community is there with us through it all.</p>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div class="gallery">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form action="/contact" method="post">
+        <input type="text" name="name" placeholder="Your name">
+        <input type="email" name="email" placeholder="Your email">
+        <textarea name="message" placeholder="Your message"></textarea>
+        <input type="submit" value="Send">
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright &copy; 2023 Connor Wilson Photography</p>
+  </footer>
 </body>
 </html>
