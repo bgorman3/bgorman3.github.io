@@ -5,16 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brendan Gorman || ITIS 3135 BYO INTRO</title>
-    <link rel="stylesheet" href="styles/default.css">
+    <link rel="stylesheet" href="styles/BYOIntro.css">
     
 </head>
 <header>
     <div data-include="components/header.html"></div>
 </header>
 <body>
-    <script src="scripts/survey.js"></script>
-            
-    <h2>BYO Intro</h2>
+    <div class="container">
+    <h2>BYO INTRO</h2>
     <h3>Time to BYO Intro page, please fill out the form below so we can create your own page.</h3>
     <form id="introForm">
         <!-- Name -->
@@ -79,17 +78,18 @@
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form>
-
-    <!-- Display Area for Results -->
     <div id="results" style="display: none;">
         <!-- JavaScript will populate this section -->
     </div>
-  
+</div>
+<script src="scripts/survey.js"></script>
 </body>
 
 <footer>
         
     <div data-include="components/footer.html"></div>
 </footer>
+
 <script src="scripts/HTMLInclude.js"></script>
+
 </html>

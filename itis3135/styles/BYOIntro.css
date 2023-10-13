@@ -1,0 +1,98 @@
+/* Add these styles to your existing CSS */
+
+.container {
+    max-width: 800px; /* Limit the width of the form container */
+    margin: 0 auto; /* Center the form container horizontally */
+    padding: 20px;
+    background-color: white; /* White background for the form */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+label, input, textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    display: block;
+}
+
+textarea {
+    width: 100%;
+}
+
+.courseInput {
+    width: 80%; /* Adjust the width of the course input field */
+    display: inline-block; /* Allow multiple course inputs to be on the same line */
+    margin-right: 10px; /* Add some spacing between course inputs */
+}
+
+.deleteCourse, #addCourse {
+    display: inline-block;
+    margin-top: 10px; /* Add space between the buttons and course inputs */
+}
+
+/* Style the submit and reset buttons */
+input[type="submit"], input[type="reset"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    background-color: #f44336;
+}
+
+/* Style the checkbox and its label */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Center the checkbox label text vertically */
+input[type="checkbox"] + label {
+    vertical-align: middle;
+}
+body {
+    background-color: rgb(173, 238, 158);
+    
+    
+}
+header {
+    background-color: #ddebdd; /* Green background color */
+    color: black; /* Text color on the header */
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    margin: 10px 0;
+}
+footer{
+    text-align: center;
+}
+.validator-logos {
+    text-align: left;
+    display: inline-block; /* Make the validator logos display inline */
+    margin-left: 20px; /* Add some spacing between the logos and the navigation links */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
