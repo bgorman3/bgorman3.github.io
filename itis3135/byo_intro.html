@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brendan Gorman || ITIS 3135 BYO INTRO</title>
+    <link rel="stylesheet" href="styles/default.css">
+    
+</head>
+<header>
+    <div data-include="components/header.html"></div>
+</header>
+<body>
+    <script src="scripts/survey.js"></script>
+    <h2>BYO INTRO</h2>
+    <form action="/action_page.php">
+        Name: <input type="text" name="name"><br>
+        Mascot: <input type="text" name="mascot"><br>
+        Image: <input type="file" name="image"><br>
+        Image Caption: <input type="text" name="imageCaption"><br>
+        Personal Background: <textarea name="personalBackground" rows="5" cols="30"></textarea><br>
+        Professional Background: <textarea name="professionalBackground" rows="5" cols="30"></textarea><br>
+        Academic Background: <textarea name="academicBackground" rows="5" cols="30"></textarea><br>
+        Background in Web Development: <textarea name="backgroundInWebDevelopment" rows="5" cols="30"></textarea><br>
+        Primary Computer Platform: <input type="text" name="primaryComputerPlatform"><br>
+        Courses currently taking: <input type="text" name="coursesCurrentlyTaking"><br>
+        Funny thing? <input type="text" name="funnyThing"><br>
+        Anything else? <textarea name="anythingElse" rows="5" cols="30"></textarea><br>
+        <input type="checkbox" name="agree" value="true"> I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available.
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+  </form>
+  
+</body>
+
+<footer>
+        
+    <div data-include="components/footer.html"></div>
+</footer>
+<script src="scripts/HTMLInclude.js"></script>
+</html>
