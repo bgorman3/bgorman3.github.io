@@ -13,24 +13,77 @@
 </header>
 <body>
     <script src="scripts/survey.js"></script>
-    <h2>BYO INTRO</h2>
-    <form action="/action_page.php">
-        Name: <input type="text" name="name"><br>
-        Mascot: <input type="text" name="mascot"><br>
-        Image: <input type="file" name="image"><br>
-        Image Caption: <input type="text" name="imageCaption"><br>
-        Personal Background: <textarea name="personalBackground" rows="5" cols="30"></textarea><br>
-        Professional Background: <textarea name="professionalBackground" rows="5" cols="30"></textarea><br>
-        Academic Background: <textarea name="academicBackground" rows="5" cols="30"></textarea><br>
-        Background in Web Development: <textarea name="backgroundInWebDevelopment" rows="5" cols="30"></textarea><br>
-        Primary Computer Platform: <input type="text" name="primaryComputerPlatform"><br>
-        Courses currently taking: <input type="text" name="coursesCurrentlyTaking"><br>
-        Funny thing? <input type="text" name="funnyThing"><br>
-        Anything else? <textarea name="anythingElse" rows="5" cols="30"></textarea><br>
-        <input type="checkbox" name="agree" value="true"> I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available.
+            
+    <h2>BYO Intro</h2>
+    <h3>Time to BYO Intro page, please fill out the form below so we can create your own page.</h3>
+    <form id="introForm">
+        <!-- Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Mascot -->
+        <label for="mascot">Mascot:</label>
+        <input type="text" id="mascot" name="mascot" required>
+
+        <!-- Image Upload -->
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept=".png, .jpg .jpeg .heic" required>
+        
+        <!-- Image Caption -->
+        <label for="imageCaption">Image Caption:</label>
+        <input type="text" id="imageCaption" name="imageCaption" required>
+
+        <!-- Personal Background -->
+        <label for="personalBackground">Personal Background:</label>
+        <input type="text" name="personalBackground" required>
+
+        <!-- Professional Background -->
+        <label for="professionalBackground">Professional Background:</label>
+        <input type="text" name="professionalBackground" required>
+
+        <!-- Academic Background -->
+        <label for="academicBackground">Academic Background:</label>
+        <input type="text" name="academicBackground" required>
+
+        <!-- Background in Web Development -->
+        <label for="webDevelopmentBackground">Background in Web Development:</label>
+        <input type="text" name="webDevelopmentBackground" required>
+
+        <!-- Primary Computer Platform -->
+        <label for="computerPlatform">Primary Computer Platform:</label>
+        <input type="text" id="computerPlatform" name="computerPlatform" required>
+
+        <!-- Courses Currently Taking -->
+        <label for="coursesTaking">Courses Currently Taking:</label>
+        <div id="coursesContainer">
+            <input type="text" class="courseInput" name="coursesTaking[]" required>
+            <button type="button" class="deleteCourse">Delete</button>
+        </div>
+        <button type="button" id="addCourse">Add Course</button>
+
+        <!-- Funny Thing -->
+        <label for="funnyThing">Funny Thing?</label>
+        <textarea id="funnyThing" name="funnyThing"></textarea>
+
+        <!-- Anything Else -->
+        <label for="anythingElse">Anything Else?</label>
+        <textarea id="anythingElse" name="anythingElse"></textarea>
+
+        <!-- Agreement Checkbox -->
+        <label for="agreement">
+            <input type="checkbox" id="agreement" name="agreement" required>
+            I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available.
+        </label>
+
+        <!-- Control Buttons -->
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
-  </form>
+    </form>
+
+    <!-- Display Area for Results -->
+    <div id="results" style="display: none;">
+        <!-- JavaScript will populate this section -->
+    </div>
   
 </body>
 
