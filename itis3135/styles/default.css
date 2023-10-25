@@ -1,12 +1,11 @@
 body {
     background-color: rgb(173, 238, 158);
     text-align: left;
-    
 }
 
 header {
-    background-color: #ddebdd; /* Green background color */
-    color: black; /* Text color on the header */
+    background-color: #ddebdd;
+    color: black;
     padding: 10px;
     text-align: center;
 }
@@ -21,18 +20,18 @@ h1 {
 }
 
 nav a {
-    color: black; /* Default link text color */
+    color: black;
     margin: 0 10px;
-    transition: color 0.3s; /* Add a smooth color transition effect */
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: blue; /* Change the link text color to blue on hover */
-    text-decoration: underline; /* You can keep the underline effect if desired */
-    text-decoration-color: blue; /* You can specify the underline color if desired */
+    color: blue;
+    text-decoration: underline;
+    text-decoration-color: blue;
 }
 
-main{
+main {
     text-align: center;
 }
 
@@ -41,33 +40,28 @@ h1 {
     margin: 10px 0;
 }
 
-nav {
-    margin: 10px 0;
-}
+/* Apply styles for small devices (min-width: 576px and up) */
+@media (min-width: 576px) {
+    .main-content {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: rgb(173, 238, 158);
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
 
-.main-content {
-    margin: 20px auto; /* Center the entire main content div horizontally */
-    max-width: 800px; /* Limit the width for better readability */
-    padding: 20px;
-    background-color: rgb(173, 238, 158);
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 
-.centered-content {
-    text-align: center; /* Center the content within the main-content div */
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Remove any potential extra spacing below the image */
-    margin: 0 auto; /* Center the image horizontally */
-}
-
-.image-caption {
-    font-style: italic;
-    margin-top: 10px;
+    .image-caption {
+        font-style: italic;
+        margin-top: 10px;
+    }
 }
 
 ul {
@@ -86,13 +80,13 @@ ul ul {
 ul ul li {
     margin-bottom: 5px;
 }
-footer{
-    text-align: center;
-}
+
+
+
 .validator-logos {
     text-align: left;
-    display: inline-block; /* Make the validator logos display inline */
-    margin-left: 20px; /* Add some spacing between the logos and the navigation links */
+    display: inline-block;
+    margin-left: 20px;
 }
 
 .image-container {
@@ -102,6 +96,51 @@ footer{
 }
 
 a {
-    display: inline-block; /* Make anchor elements block-level to control width */
-    margin: 10px; /* Adjust margin as needed to add space between the elements */
+    display: inline-block;
+    margin: 10px;
+}
+footer {
+    text-align: center;
+
+}
+.calculator {
+    border-radius: 12px;
+    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+    margin: 2em auto; /* Add margin to center the calculator and create space around it */
+    max-width: 15em;
+    overflow: hidden;
+}
+
+.calculator_display {
+    background-color: #222222;
+    color: #fff;
+    font-size: 1.714285714em;
+    padding: 0.5em 0.75em;
+    text-align: right;
+}
+
+.calculator_keys {
+    background-color: #999;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0.5em; /* Add padding to create space inside the keys container */
+}
+
+.calculator_keys > * {
+    background-color: #fff;
+    padding: 0.5em 0.75em;
+    position: relative;
+    text-align: center;
+}
+
+
+.key--operator {
+    background-color: #eee;
+}
+
+.key--equal {
+    background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+    grid-column: -2;
+    grid-row: 2 / span 4;
 }

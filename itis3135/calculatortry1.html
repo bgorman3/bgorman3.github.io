@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brendan Gorman || ITIS 3135 BYO INTRO</title>
+    <link rel="stylesheet" href="styles/default.css">
+    
+</head>
+<header>
+    <div data-include="components/header.html"></div>
+</header>
+<body>
+    <div id="calculator">
+        <input type="text" id="calculator-display" readonly>
+        <div>
+            <button class="button1" onclick="appendToDisplay('1')">1</button>
+            <button class="button2" onclick="appendToDisplay('2')">2</button>
+            <button class="button3" onclick="appendToDisplay('3')">3</button>
+            <button class="button4" onclick="appendToDisplay('4')">4</button>
+            <button class="button5" onclick="appendToDisplay('5')">5</button>
+            <button class="button6" onclick="appendToDisplay('6')">6</button>
+            <button class="button7" onclick="appendToDisplay('7')">7</button>
+            <button class="button8" onclick="appendToDisplay('8')">8</button>
+            <button class="button9" onclick="appendToDisplay('9')">9</button>
+            <button class="button+" onclick="appendToDisplay('+')">+</button>
+            <button class="button*" onclick="appendToDisplay('*')">*</button>
+            <button class="button-" onclick="appendToDisplay('-')">-</button>
+            <button class="button/" onclick="appendToDisplay('/')">/</button>
+            <button class="button=" onclick="calculateResult()">=</button>
+
+            <!-- Add buttons for other digits and operators -->
+        </div>
+    </div>
+</body>
+<footer>
+    <div data-include="components/footer.html"></div>
+</footer>
+<script src="scripts/calculatortry1.js"></script>
+
+<script src="scripts/HTMLInclude.js"></script>
+
+</html>
