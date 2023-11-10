@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Management</title>
+    <link rel="stylesheet" href="styles/default.css">
+</head>
+<header>
+    <div data-include="components/header.html"></div>
+</header>
+<body>
+<h1>Employee Salary Management</h1>
+  
+  <label for="selectEmployee">Select Employee:</label>
+  <select id="selectEmployee">
+    <option value="Bob">Bob</option>
+    <option value="Ian">Ian</option>
+    <option value="Mills">Mills</option>
+    <option value="Connor">Connor</option>
+  </select>
+
+  <label for="enterSalary">Enter Salary:</label>
+  <input type="text" id="enterSalary">
+  <button onclick="addSalary()">Add Salary</button>
+  <button onclick="displayResults()">Display Results</button>
+
+  <div id="results">
+    <h2>Results</h2>
+    <table id="results_table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be added dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="scripts/arrays.js"></script>
+</body>
+<footer>
+        
+    <div data-include="components/footer.html"></div>
+</footer>
+<script src="scripts/HTMLInclude.js"></script>
+</html>
