@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <header>
+
+ 
+          
+        <div class="navbar">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="logo-link">
+                            <img src="Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" class="logo" alt="Logo">
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="personal.html">Personal</a></li>
+                    <li class="nav-item"> <a href="contact.html">Contact</a></li>
+                    <li class="nav-item"><input type="text" class="primary" id="searchbar" placeholder="Search">
+                        <button class="primary" type="button" id="searchbutton">Search</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Contact</h1>
+        <p>-- Send me a message here, or dm me on Instagram! --
+            @Edgy_Z33</p>
+   
+        
+        <form action="/submit-form" method="post" onsubmit="return validateForm()" class="contact-form">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <footer>
+        <div class="footer" data-include="components/footer.html"></div>
+    </footer>
+    <script src="default.js"></script>
+   
+</body>
+</html>
