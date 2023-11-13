@@ -144,3 +144,7 @@ footer {
     grid-column: -2;
     grid-row: 2 / span 4;
 }
+#sketchContainer {
+    width: 100vw;
+    height: 100vh;
+}
