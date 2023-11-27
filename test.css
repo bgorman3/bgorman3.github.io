@@ -1,8 +1,0 @@
-.tooltip {
-  display: none;
-  position: absolute;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
