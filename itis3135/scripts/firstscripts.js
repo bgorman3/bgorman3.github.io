@@ -27,18 +27,33 @@ function greetUser() {
 
 // Function to get polygon name
 function getPolygonName() {
-    let favoriteNumber = parseInt(document.getElementById("favorite-number").value);
-    if (isNaN(favoriteNumber)) {
-        favoriteNumber = 0;
+    let favoriteNumber = document.getElementById("favorite-number").value;
+  
+    // Validate input
+    if (!favoriteNumber || isNaN(favoriteNumber)) {
+      alert("Please enter a valid number.");
+      return; // Stop function execution if invalid
     }
-    favoriteNumber = Math.abs(favoriteNumber);
-    favoriteNumber = Math.round(favoriteNumber);
-    
+  
+    favoriteNumber = parseInt(Math.abs(favoriteNumber)); // Convert to integer
+    favoriteNumber = Math.round(favoriteNumber); // Round to nearest integer
+  
+    // Handle out-of-range values
+    if (favoriteNumber < 1) {
+      favoriteNumber = "undefined";
+    } else if (favoriteNumber > 100) {
+      favoriteNumber = "Beyond infinity-gon"; // Use a fun name for large numbers
+    }
+  
+    // Choose polygon name based on validated number
     const polygonNames = ["digon", "triangle", "quadrilateral", "pentagon", "hexagon", "heptagon", "octagon", "nonagon", "decagon"];
-    const polygonName = polygonNames[favoriteNumber];
-    
+    const polygonName = favoriteNumber <= 5 ? polygonNames[favoriteNumber - 2] : `${favoriteNumber}-gon`;
+
+  
+    // Output the result
     alert(`Your favorite polygon has ${favoriteNumber} sides, and it is called a ${polygonName}.`);
-}
+  }
+  
 
 // Functions for Animal Brand Company
 function function1() {
