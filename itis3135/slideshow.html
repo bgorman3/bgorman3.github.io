@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brendan Gorman Greedy Goblins || ITIS 3135 || Home</title>
+    <link rel="stylesheet" href="styles/default.css">
+  
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>Name Slideshow</h2>
+        <h3>Brendan:
+            Boat, Rainbow, Elephant, Notebook, Dolphin, Apple, Nest.
+        </h3>
+
+        <div class="slider">
+            <div class="slides">
+                <img src="images/b.png" class="slide" alt="B - Boat">
+                <img src="images/r.png" class="slide" alt="R - Rainbow">
+                <img src="images/e.png" class="slide" alt="E - Elephant">
+                <img src="images/n.png" class="slide" alt="N - Notebook">
+                <img src="images/d.png" class="slide" alt="D - Dolphin">
+                <img src="images/a.png" class="slide" alt="A - Apple">
+                <img src="images/m.png" class="slide" alt="N - Nest">
+            </div>
+            <button class="prev" onclick="plusSlide(-1)">❮</button>
+            <button class="next" onclick="plusSlide(1)">❯</button>
+        </div>
+
+        <div class="thumbnail-container">
+            <img src="images/b.png" class="thumbnail" onclick="currentSlide(1)" alt="B - Boat">
+            <img src="images/r.png" class="thumbnail" onclick="currentSlide(2)" alt="R - Rainbow">
+            <img src="images/e.png" class="thumbnail" onclick="currentSlide(3)" alt="E - Elephant">
+            <img src="images/n.png" class="thumbnail" onclick="currentSlide(4)" alt="N - Notebook">
+            <img src="images/d.png" class="thumbnail" onclick="currentSlide(5)" alt="D - Dolphin">
+            <img src="images/a.png" class="thumbnail" onclick="currentSlide(6)" alt="A - Apple">
+            <img src="images/m.png" class="thumbnail" onclick="currentSlide(7)" alt="N - Nest">
+        </div>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script src="scripts/HTMLInclude.js"></script>
+    
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function plusSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+</html>
