@@ -5,11 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Search</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css"> 
+  
 </head>
 <body>
   <input type="text" id="searchInput" placeholder="Enter image name">
   <button onclick="searchImages()">Search</button>
   <div id="imageContainer"></div>
+  <div class="tooltip-container">
+    <img src="car1.png" alt="Image 1" class="tooltip-trigger" data-tooltip="Tooltip Text for Image 1">
+</div>
+
+<div class="tooltip-container">
+    <img src="car2.png" alt="Image 2" class="tooltip-trigger" data-tooltip="Tooltip Text for Image 2">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="jquery-ui-1.13.2.custom/jquery-ui.js"></script>
 
   <script src="script.js"></script>
 </body>

@@ -45,3 +45,18 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  padding: 8px;
+  background-color: #333;
+  color: white;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
