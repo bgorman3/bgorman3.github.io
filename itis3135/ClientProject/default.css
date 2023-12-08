@@ -186,3 +186,22 @@ footer {
 p{
     padding-bottom: 50px;
 }
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .tooltip .tooltiptext {
+    display: none;
+    width: auto; /* Allow the width to adjust based on content */
+    max-width: 200px; /* Set a maximum width to prevent overly wide tooltips */
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: fixed;
+    z-index: 1;
+    white-space: nowrap; /* Prevent text wrapping */
+  }

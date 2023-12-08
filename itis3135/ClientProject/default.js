@@ -52,4 +52,17 @@ function showSlide(n) {
     }
 }
 
+function submitForm(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Collect form data
+  var formData = {
+      name: $('input[name="name"]').val(),
+      email: $('input[name="email"]').val(),
+      password: $('input[name="password"]').val()
+  };
+
+  // Display an alert with the form data
+  alert('Form Data:\nName: ' + formData.name + '\nEmail: ' + formData.email + '\nPassword: ' + formData.password);
+}
 

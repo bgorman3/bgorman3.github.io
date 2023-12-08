@@ -7,30 +7,15 @@
     <title>Portfolio Page</title>
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css"> 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-     $(function () {
-            var availableTags = [
-                "BMW", "Nissan", "Lexus", "Chevrolet", "Porsche", "Infiniti", "Datsun",
-                "Toyota", "Subaru", "Lamborghini", "Volkswagen", "Ford", "Honda", "Audi",
-                "Mercedes-Benz", "Volvo", "Hyundai", "Kia", "Mazda", "Jaguar", "Land Rover",
-                "Tesla", "Buick", "Jeep", "Chrysler", "Ram", "GMC", "Cadillac", "Acura",
-                "Lincoln", "Mini", "Fiat", "Maserati", "Ferrari", "Alfa Romeo", "Bentley",
-                "Rolls-Royce", "Aston Martin", "Lancia", "Bugatti", "McLaren", "Lotus",
-                "Suzuki", "Smart", "Maybach", "Saab", "Scion", "Plymouth", "Hummer",
-                "Saturn", "Oldsmobile", "Geo", "Isuzu"
-            ];
+    <script src="jquery.js"></script>
+   
+    
 
-            $("#searchInput").autocomplete({
-                source: availableTags
-            });
-
-            $(".gallery img").tooltip({
-                content: "Hello" // Set the tooltip content to "Hello" for all images
-            });
-        });
-</script>
+  
+  
 </head>
 <body>
     <header>
@@ -64,25 +49,43 @@
         <div class="centered-content1">
         <div class="gallery">
 
-            <figure>
-                <a href="page1.html"><img src="car1.png" alt="Image 1"></a>
-                <figcaption>Stylish 2023</figcaption>
-              </figure>
-
-         <figure>
-            <a href="page4.html"><img src="car2.png" alt="Image 2"></a>
-            <figcaption>C7 Z06 2023</figcaption>
+          <figure class="tooltip">
+            <a href="page1.html">
+              <img class="resizable-image" src="car1.png" alt="Image 1" credit="@Edgy_z33">
+            </a>
+            <figcaption>Stylish 2023</figcaption>
+            <div class="tooltiptext">Credit: @Edgy_z33</div>
         </figure>
+            
 
-        <figure>
-            <a href="page3.html"><img src="car3.png" alt="Image 3"></a>
-            <figcaption>Dfitz Meets 2023</figcaption>
-        </figure>
 
-        <figure>
-            <a href="page2.html"><img src="car4.png" alt="Image 4"></a>
-            <figcaption>CM Drift 2023</figcaption>
-        </figure>
+        <figure class="tooltip">
+          <a href="page4.html">
+              <img class="resizable-image" src="car2.png" alt="Image 2" credit="@Edgy_z33">
+          </a>
+          <figcaption>Pop-up 2023</figcaption>
+          <div class="tooltiptext">Credit: @Edgy_z33</div>
+      </figure>
+      
+      <figure class="tooltip">
+          <a href="page3.html">
+              <img class="resizable-image" src="car3.png" alt="Image 3" credit="@Edgy_z33">
+          </a>
+          <figcaption>Dfitz Meets 2023</figcaption>
+          <div class="tooltiptext">Credit: @Edgy_z33</div>
+      </figure>
+      
+      <figure class="tooltip">
+          <a href="page2.html">
+              <img class="resizable-image" src="car4.png" alt="Image 3" credit="@Edgy_z33">
+          </a>
+          <figcaption>CM Drift 2023</figcaption>
+          <div class="tooltiptext">Credit: @Edgy_z33</div>
+      </figure>
+      
+      
+
+        
         </div>
      
     </div>
@@ -91,7 +94,10 @@
  
 </body>
 <footer>
-    <p> &copy;2023 Connor Wilson Photography, All Rights Reserved</p>
+    <p>&copy;2023 Connor Wilson Photography, All Rights Reserved&nbsp;</p>
+    <p>Page Built By, <a href="www.linkedin.com/in/brendan-gorman-0a0021279">Brendan Gorman</a></p>
+    
+    
 </footer>
 <script src="default.js"></script>
 </html>

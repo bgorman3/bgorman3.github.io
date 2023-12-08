@@ -10,6 +10,7 @@
     .tooltip-container {
       position: relative;
       display: inline-block;
+      margin: 10px;
     }
 
     .custom-tooltip {
@@ -41,6 +42,18 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="jquery-ui-1.13.2.custom/jquery-ui.js"></script>
 
-  <script src="script.js"></script>
+  <script>
+    $(function () {
+      $('.tooltip-trigger').hover(
+        function () {
+          const tooltipText = $(this).attr('data-tooltip');
+          $(this).next('.custom-tooltip').text(tooltipText).fadeIn();
+        },
+        function () {
+          $(this).next('.custom-tooltip').fadeOut();
+        }
+      );
+    });
+  </script>
 </body>
 </html>
