@@ -4,52 +4,29 @@ function searchImages() {
 }
 
 async function fetchImages(searchTerm) {
-  const response = await fetch('./images.json');
+  const response = await fetch('images.json');
   const images = await response.json();
-  const filteredImages = images.filter(image => image.name.toLowerCase().includes(searchTerm));
-  displayImages(filteredImages);
+  const results = searchImagesInDatabase(images, searchTerm);
+  displaySearchResults(results);
 }
 
-function displayImages(imageArray) {
-  const imageContainer = document.getElementById('imageContainer');
-  imageContainer.innerHTML = '';
-
-  imageArray.forEach(image => {
-    const imgElement = document.createElement('img');
-    imgElement.src = `./images/${image.filename}`;
-    imgElement.alt = image.name;
-
-    imgElement.addEventListener('click', () => {
-      navigateToPage(image.page);
-    });
-
-    imageContainer.appendChild(imgElement);
-  });
+function searchImagesInDatabase(images, searchTerm) {
+  return images.filter(image => image.name.toLowerCase().includes(searchTerm));
 }
 
-function navigateToPage(page) {
-  window.location.href = page;
+
+
+function displaySearchResults(results) {
+  const searchResultsContainer = document.getElementById('searchResults');
+  searchResultsContainer.innerHTML = '';
+
+  if (results.length === 0) {
+      alert('No results found.');
+  } else {
+      let message = 'Images found on pages:\n';
+      results.forEach(result => {
+          message += `Image '${result.name}' on page: ${result.page}\n`;
+      });
+      alert(message);
+  }
 }
-
-$(document).ready(function(){
-  $('.tooltip-trigger').hover(
-      function() {
-          var tooltipText = $(this).attr('data-tooltip');
-          $('<div class="tooltip"></div>').text(tooltipText).appendTo($(this).parent()).fadeIn('fast');
-      },
-      function() {
-          $(this).parent().find('.tooltip').remove();
-      }
-  ).mousemove(function(e) {
-      var xOffset = 10;
-      var yOffset = 10 + ($(this).height() / 2); // Adjust the yOffset based on half of the image height
-      var mousex = e.pageX + xOffset;
-      var mousey = e.pageY + yOffset;
-      $(this).parent().find('.tooltip').css({ top: mousey, left: mousex });
-  });
-});
-$(document).ready(function(){
-  // Example: Initialize a jQuery UI widget (e.g., datepicker)
-  $('#datepicker').datepicker();
-});
-

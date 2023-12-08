@@ -6,29 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Page</title>
     <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+     $(function () {
+            var availableTags = [
+                "BMW", "Nissan", "Lexus", "Chevrolet", "Porsche", "Infiniti", "Datsun",
+                "Toyota", "Subaru", "Lamborghini", "Volkswagen", "Ford", "Honda", "Audi",
+                "Mercedes-Benz", "Volvo", "Hyundai", "Kia", "Mazda", "Jaguar", "Land Rover",
+                "Tesla", "Buick", "Jeep", "Chrysler", "Ram", "GMC", "Cadillac", "Acura",
+                "Lincoln", "Mini", "Fiat", "Maserati", "Ferrari", "Alfa Romeo", "Bentley",
+                "Rolls-Royce", "Aston Martin", "Lancia", "Bugatti", "McLaren", "Lotus",
+                "Suzuki", "Smart", "Maybach", "Saab", "Scion", "Plymouth", "Hummer",
+                "Saturn", "Oldsmobile", "Geo", "Isuzu"
+            ];
+
+            $("#searchInput").autocomplete({
+                source: availableTags
+            });
+
+            $(".gallery img").tooltip({
+                content: "Hello" // Set the tooltip content to "Hello" for all images
+            });
+        });
+</script>
 </head>
 <body>
     <header>
         <div class="NavBar">
-        <navbar>
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a href="index.html" class="logo-link">
-                    <img src="Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" class="logo" alt="Logo">
-                </a>
-            </li>
-            <li class="nav-item"><a href="index.html">Home</a></li>
-            <li class="nav-item"><a href="personal.html">Personal</a></li>
-            <li class="nav-item"> <a href="contact.html">Contact</a></li>
-            
-            <li class="nav-item"><input type="text" class="primary" id="searchbar" placeholder="Search">
-                <button class="primary" type="button" id="searchbutton">Search</button></li>
-            
-
-            
-        </ul>
-        </navbar>
-    </div>
+            <navbar>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="logo-link">
+                            <img src="Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" class="logo" alt="Logo">
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="personal.html">Personal</a></li>
+                    <li class="nav-item"> <a href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <input type="text" id="searchInput" placeholder="Search Car Brands">
+                        <button onclick="searchImages()">Search</button>
+                    </li>
+                </ul>
+            </navbar>
+        </div>
     </header>
 
     <main>
@@ -43,32 +66,32 @@
 
             <figure>
                 <a href="page1.html"><img src="car1.png" alt="Image 1"></a>
-                <figcaption>2023 Portfolio </figcaption>
+                <figcaption>Stylish 2023</figcaption>
               </figure>
 
          <figure>
-            <a href="page2.html"><img src="car2.png" alt="Image 2"></a>
-            <figcaption>2023 Portfolio </figcaption>
+            <a href="page4.html"><img src="car2.png" alt="Image 2"></a>
+            <figcaption>C7 Z06 2023</figcaption>
         </figure>
 
         <figure>
             <a href="page3.html"><img src="car3.png" alt="Image 3"></a>
-            <figcaption>2022 Portfolio</figcaption>
+            <figcaption>Dfitz Meets 2023</figcaption>
         </figure>
 
         <figure>
-            <a href="page4.html"><img src="car4.png" alt="Image 4"></a>
-            <figcaption>2021 Portfolio</figcaption>
+            <a href="page2.html"><img src="car4.png" alt="Image 4"></a>
+            <figcaption>CM Drift 2023</figcaption>
         </figure>
         </div>
      
     </div>
-    <script src="default.js"></script>
+   
     </main>
-    <script src="default.js"></script>
+ 
 </body>
 <footer>
     <p> &copy;2023 Connor Wilson Photography, All Rights Reserved</p>
 </footer>
-
+<script src="default.js"></script>
 </html>
