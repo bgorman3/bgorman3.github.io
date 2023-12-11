@@ -65,4 +65,3 @@ function submitForm(event) {
   // Display an alert with the form data
   alert('Form Data:\nName: ' + formData.name + '\nEmail: ' + formData.email + '\nPassword: ' + formData.password);
 }
-
