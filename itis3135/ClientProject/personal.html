@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,16 @@
     <title>Personal Page</title>
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css"> 
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="jquery.js"></script>
-   
-    
-
-  
-  
 </head>
+
 <body>
     <header>
         <div class="NavBar">
-            <navbar>
+            <navbar role="navigation">
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="index.html" class="logo-link">
@@ -32,6 +29,7 @@
                     <li class="nav-item"> <a href="contact.html">Contact</a></li>
                     <li class="nav-item"> <a href="glossary.html">Glossary</a></li>
                     <li class="nav-item">
+                        <label for="searchInput">Search Car Brands</label>
                         <input type="text" id="searchInput" placeholder="Search Car Brands">
                         <button onclick="searchImages()">Search</button>
                     </li>
@@ -41,24 +39,19 @@
     </header>
     <main>
         <h1>Personal Page</h1>
-        <p>This page contains all of my pictures of my own car my silver 350z.</p>
-        <div class="slider">
+        <p>This page contains all of my pictures of my own car, my silver 350z.</p>
+        <div class="slider" role="region" aria-label="Image Slider">
             <div class="slides">
-                <img src="car5.png" class="slide" alt="Car Image 1">
-                <img src="car6.png" class="slide" alt="Car Image 2">
-                <img src="car7.png" class="slide" alt="Car Image 3">
-                <img src="car8.png" class="slide" alt="Car Image 4">
+                <img src="car5.png" class="slide" alt="Personal Page Image 1">
+                <img src="car6.png" class="slide" alt="Personal Page Image 2">
+                <img src="car7.png" class="slide" alt="Personal Page Image 3">
+                <img src="car8.png" class="slide" alt="Personal Page Image 4">
                 <!-- Add more images as needed -->
             </div>
-            <button class="prev" onclick="plusSlide(-1)">❮</button>
-            <button class="next" onclick="plusSlide(1)">❯</button>
+            <button class="prev" onclick="plusSlide(-1)" aria-label="Previous Slide">❮</button>
+            <button class="next" onclick="plusSlide(1)" aria-label="Next Slide">❯</button>
         </div>
-        
-      
     </main>
- 
-   
-   
 </body>
 <footer>
     <p>&copy;2023 Connor Wilson Photography, All Rights Reserved&nbsp;</p>
@@ -66,4 +59,3 @@
 </footer>
 <script src="default.js"></script>
 </html>
-

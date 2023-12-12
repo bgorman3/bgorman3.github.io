@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,16 @@
     <title>Stylish Collection</title>
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css"> 
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="jquery.js"></script>
-   
-    
-
-  
-  
 </head>
+
 <body>
     <header>
         <div class="NavBar">
-            <navbar>
+            <navbar role="navigation">
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="index.html" class="logo-link">
@@ -32,6 +29,7 @@
                     <li class="nav-item"> <a href="contact.html">Contact</a></li>
                     <li class="nav-item"> <a href="glossary.html">Glossary</a></li>
                     <li class="nav-item">
+                        <label for="searchInput">Search Car Brands</label>
                         <input type="text" id="searchInput" placeholder="Search Car Brands">
                         <button onclick="searchImages()">Search</button>
                     </li>
@@ -42,23 +40,19 @@
     <main>
         <h1>Stylish Collection</h1>
         <p>Get ready for the Stylish car meet near downtown Charlotte, by the Amtrak station. Amidst sleek black metal buildings with illuminated concrete steps, this event offers a stunning backdrop. Known for its rowdy atmosphere, expect loud exhausts and daring drivers pushing the limits, making Stylish meets a must-visit for thrill-seekers and car enthusiasts alike.</p>
-        <div class="slider">
+        <div class="slider" role="region" aria-label="Image Slider">
             <div class="slides">
-                <img src="car9.png" class="slide" alt="Car Image 1">
-                <img src="car10.png" class="slide" alt="Car Image 2">
-                <img src="car11.png" class="slide" alt="Car Image 3">
-                <img src="car12.png" class="slide" alt="Car Image 4">
+                <img src="car9.png" class="slide" alt="Stylish Car Meet Image 1">
+                <img src="car10.png" class="slide" alt="Stylish Car Meet Image 2">
+                <img src="car11.png" class="slide" alt="Stylish Car Meet Image 3">
+                <img src="car12.png" class="slide" alt="Stylish Car Meet Image 4">
                 <!-- Add more images as needed -->
             </div>
-            <button class="prev" onclick="plusSlide(-1)">❮</button>
-            <button class="next" onclick="plusSlide(1)">❯</button>
+            <button class="prev" onclick="plusSlide(-1)" aria-label="Previous Slide">❮</button>
+            <button class="next" onclick="plusSlide(1)" aria-label="Next Slide">❯</button>
         </div>
-        
-      
     </main>
- 
-   
-   
+
 </body>
 <footer>
     <p>&copy;2023 Connor Wilson Photography, All Rights Reserved&nbsp;</p>
@@ -66,4 +60,3 @@
 </footer>
 <script src="default.js"></script>
 </html>
-
