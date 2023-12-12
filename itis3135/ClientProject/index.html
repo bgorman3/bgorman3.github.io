@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +9,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css"> 
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
- 
     <script src="jquery.js"></script>
- 
-   
-    
-
-  
-  
 </head>
+
 <body>
     <header>
         <div class="NavBar">
-            <navbar>
+            <navbar role="navigation">
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="index.html" class="logo-link">
@@ -36,6 +30,7 @@
                     <li class="nav-item"> <a href="contact.html">Contact</a></li>
                     <li class="nav-item"> <a href="glossary.html">Glossary</a></li>
                     <li class="nav-item">
+                        <label for="searchInput">Search Car Brands</label>
                         <input type="text" id="searchInput" placeholder="Search Car Brands">
                         <button onclick="searchImages()">Search</button>
                     </li>
@@ -46,65 +41,58 @@
 
     <main>
         <h1>Hello, I'm Connor Wilson!</h1>
-        <p>I am a photographer located in Cary, NC. Since 2021, I have been diligently refining my skills while finding immense joy in the process. This path has led me to connect with new people, and fortunately, I've been lucky enough to witness some beautiful cars. The realm of car photography holds a special allure for me, as it offers a platform for genuine creativity. Through this art, I strive to encapsulate the very essence of our passion as enthusiasts. Be it the questionable passion of &quot;how low can it go&quot;, the nostalgic charm of classic cars, or the exhilarating thrill of tire-shredding excitement, this vibrant community accompanies us every step of the way.</p>
-   
+        <p>I am a photographer located in Cary, NC. Since 2021, I have been diligently refining my skills while finding immense joy in the process. This path has led me to connect with new people, and fortunately, I've been lucky enough to witness some beautiful cars. The realm of car photography holds a special allure for me, as it offers a platform for genuine creativity. Through this art, I strive to encapsulate the very essence of our passion as enthusiasts. Be it the questionable passion of "how low can it go", the nostalgic charm of classic cars, or the exhilarating thrill of tire-shredding excitement, this vibrant community accompanies us every step of the way.</p>
+
         <p>All of the pictures were taken by myself.</p>
-        
+
         <div id="dynamicImageContainer" class="gallery"></div>
 
         <div class="centered-content1">
-        <div class="gallery">
+            <div class="gallery">
 
-          <figure class="tooltip">
-            <a href="page1.html">
-              <img class="resizable-image" src="car1.png" alt="Image 1" credit="@Edgy_z33">
-            </a>
-            <figcaption>Stylish 2023</figcaption>
-            <div class="tooltiptext">Credit: @Edgy_z33</div>
-        </figure>
-            
+                <figure class="tooltip">
+                    <a href="page1.html">
+                        <img class="resizable-image" src="car1.png" alt="Stylish 2023 Car by Edgy_z33 - Photo Credit: @Edgy_z33">
+                    </a>
+                    <figcaption>Stylish 2023</figcaption>
+                    <div class="tooltiptext">Credit: @Edgy_z33</div>
+                </figure>
 
+                <figure class="tooltip">
+                    <a href="page4.html">
+                        <img class="resizable-image" src="car2.png" alt="Pop-up 2023 Car by Edgy_z33 - Photo Credit: @Edgy_z33">
+                    </a>
+                    <figcaption>Pop-up 2023</figcaption>
+                    <div class="tooltiptext">Credit: @Edgy_z33</div>
+                </figure>
 
-        <figure class="tooltip">
-          <a href="page4.html">
-              <img class="resizable-image" src="car2.png" alt="Image 2" credit="@Edgy_z33">
-          </a>
-          <figcaption>Pop-up 2023</figcaption>
-          <div class="tooltiptext">Credit: @Edgy_z33</div>
-      </figure>
-      
-      <figure class="tooltip">
-          <a href="page3.html">
-              <img class="resizable-image" src="car3.png" alt="Image 3" credit="@Edgy_z33">
-          </a>
-          <figcaption>Dfitz Meets 2023</figcaption>
-          <div class="tooltiptext">Credit: @Edgy_z33</div>
-      </figure>
-      
-      <figure class="tooltip">
-          <a href="page2.html">
-              <img class="resizable-image" src="car4.png" alt="Image 3" credit="@Edgy_z33">
-          </a>
-          <figcaption>CM Drift 2023</figcaption>
-          <div class="tooltiptext">Credit: @Edgy_z33</div>
-      </figure>
-      
-      
+                <figure class="tooltip">
+                    <a href="page3.html">
+                        <img class="resizable-image" src="car3.png" alt="Dfitz Meets 2023 Car by Edgy_z33 - Photo Credit: @Edgy_z33">
+                    </a>
+                    <figcaption>Dfitz Meets 2023</figcaption>
+                    <div class="tooltiptext">Credit: @Edgy_z33</div>
+                </figure>
 
-        
+                <figure class="tooltip">
+                    <a href="page2.html">
+                        <img class="resizable-image" src="car4.png" alt="CM Drift 2023 Car by Edgy_z33 - Photo Credit: @Edgy_z33">
+                    </a>
+                    <figcaption>CM Drift 2023</figcaption>
+                    <div class="tooltiptext">Credit: @Edgy_z33</div>
+                </figure>
+
+            </div>
+
         </div>
-     
-    </div>
- 
-   
+
     </main>
- 
+
 </body>
 <footer>
     <p>&copy;2023 Connor Wilson Photography, All Rights Reserved&nbsp;</p>
     <p>Page Built By, <a href="www.linkedin.com/in/brendan-gorman-0a0021279">Brendan Gorman</a></p>
-    
-    
 </footer>
 <script src="default.js"></script>
+
 </html>
