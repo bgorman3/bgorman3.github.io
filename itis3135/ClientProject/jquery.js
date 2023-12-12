@@ -54,16 +54,20 @@ $(function() {
           // Iterate through the image data and append images to the container
           for (var i = 0; i < data.length; i++) {
             var image = data[i];
-            $('#dynamicImageContainer').append(
-              '<figure class="tooltip">' +
-              '<a href="' + image.page + '">' +
-              '<img class="resizable-image" src="' + image.filename + '" alt="' + image.name + '" credit="' + image.credit + '">' +
-              '</a>' +
-              '<figcaption>' + image.name + '</figcaption>' +
-              '<div class="tooltiptext">Credit: ' + image.credit + '</div>' +
-              '</figure>'
-            );
-          }
+            // Specify the names of the images you want to display
+            var desiredImageNames = ['Stylish', 'Pop-up', 'Dfitz Meets', 'CM Drift'];
+            if (desiredImageNames.includes(image.name)) {
+                $('#dynamicImageContainer').append(
+                    '<figure class="tooltip">' +
+                    '<a href="' + image.page + '">' +
+                    '<img class="resizable-image" src="' + image.filename + '" alt="' + image.name + '" credit="' + image.credit + '">' +
+                    '</a>' +
+                    '<figcaption>' + image.name + ' 2023</figcaption>' +
+                    '<div class="tooltiptext">Credit: ' + image.credit + '</div>' +
+                    '</figure>'
+                );
+            }
+        }
 
           // Apply tooltip and image resizing after adding images
           $('.tooltip .resizable-image').resizable({
