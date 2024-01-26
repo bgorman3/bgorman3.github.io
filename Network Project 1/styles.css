@@ -1,8 +1,9 @@
 
 html {
-    background-color: rgb(167, 22, 22);
+    background-color: rgb(167, 21, 21);
     color: white;
     font-family: Candara;
+    font-size: x-large;
   }
 
 
@@ -68,7 +69,9 @@ html {
   .container2 {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 20px;
+    gap: 200px;
+    margin-top: 50px;
+    margin-left: 20px;
   }
   
   .content {
@@ -94,7 +97,7 @@ html {
   }
   
   img {
-    max-width: 100%;
+    max-width: 600px;
     height: auto;
   }
 
@@ -111,11 +114,18 @@ html {
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    margin-top: 50px;
+    
     
 }
-
+footer a {
+  color: #fff;
+}
  
-
+footer a:hover {
+  color: rgb(167, 22, 22);
+  transition: all 200ms ease-in;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
