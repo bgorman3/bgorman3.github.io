@@ -4,27 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Item</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">
-      <a href="#"><img src="Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" alt="Logo"></a>
-    </div>
-    <div class="search-container">
-      <input type="text" placeholder="Search...">
-      <button type="submit">Search</button>
-    </div>
-    <nav>
-
-         <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="item.html">Description</a></li>
-        <li><a href="items.html">Products</a></li>
-        <li><a href="new.html">Listings</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%- include('../partials/header.ejs') %>
     <main>
         <h1>List a New Item</h1>
         <form action="#" method="post">
@@ -44,13 +27,6 @@
             <button type="submit">Submit</button>
         </form>
     </main>
-    <footer>
-        <div class="copyright">&copy; Edgy Media</div>
-        
-            <a href="https://www.facebook.com">Facebook</a>
-            <a href="https://www.twitter.com">Twitter</a>
-            <a href="https://www.instagram.com">Instagram</a>
-      
-    </footer>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>

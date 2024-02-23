@@ -1,29 +1,33 @@
-// Require modules
+// Import required modules
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
-const storyRoutes = require('./routes/pageRoutes');
+const userRoutes = require('./routes/UserRoutes');
 
 // Create Express app
 const app = express();
 
-// Configure app
+// Set up port and host
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || 'localhost';
+
+// Set the view engine
 app.set('view engine', 'ejs');
 
-// Mount middleware
+// Middleware setup
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
-// Set up routes
-app.get('/', (req, res) => {
+// Define root route
+app.get('/', (req, res)=>{
     res.render('index');
+
 });
 
-app.use('/stories', storyRoutes);
+// Use UserRoutes for other routes
+app.use('/users', userRoutes);
 
 // Error handling middleware
 app.use((req, res, next) => {

@@ -4,8 +4,9 @@
   "description": "New App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "nodemon app.js"
+}
+,
   "repository": {
     "type": "git",
     "url": "bgorman3.github.io"
@@ -17,6 +18,9 @@
   "author": "Brendan Gorman",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.9"
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0"
   }
 }
