@@ -1,0 +1,224 @@
+
+html {
+    background-color: rgb(167, 21, 21);
+    color: white;
+    font-family: Candara;
+    font-size: x-large;
+  }
+
+
+  header.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    z-index: 1000; /* Ensure header is above other content */
+    
+}
+  .navbar {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px rgb(51, 46, 46);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: Candara;
+  }
+  .navbar a{
+    color:white;
+  }
+  .navbar .logo img {
+    height: 40px;
+  }
+  .navbar ul li a:hover {
+    color: rgb(167, 22, 22);
+    transition: all 200ms ease-in;
+  }
+  
+  .navbar .search-container {
+    width: 300px; /* Set the width of the search container */
+  }
+  
+  .navbar input[type="text"] {
+    width: 70%; /* Set the width of the input field */
+    padding: 8px;
+    border: none;
+    font-family: Candara;
+  }
+  
+  .navbar button[type="submit"] {
+   
+    font-family: Candara;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  
+  
+  nav ul li {
+    display: inline;
+    margin-left: 20px;
+  }
+  
+  
+  
+
+
+
+
+  .container2 {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 200px;
+    
+    margin-left: 20px;
+  }
+  
+  .content {
+    grid-column: 1 / 2;
+  }
+  
+  .image-box {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  
+  .image-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+  }
+  
+  .image-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  img {
+    max-width: 600px;
+    height: auto;
+  }
+
+
+
+
+
+  
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 97.5%;
+  background-color: #050303;
+  box-shadow: 0px 0px 10px rgb(51, 46, 46);
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between; /* Ensure "Edgy Media" is aligned to the left and links are aligned to the right */
+  align-items: center; /* Align items vertically */
+}
+
+footer .copyright {
+  flex: 1; /* Allow "Edgy Media" to take available space */
+}
+
+footer a {
+  color: #fff;
+  margin-left: 20px; /* Add spacing between links */
+}
+
+footer a:hover {
+  color: rgb(167, 22, 22);
+  transition: all 200ms ease-in;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.item img {
+    max-width: 100%;
+}
+
+.item-detail {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+}
+
+.new-item-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.new-item-form input,
+.new-item-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.new-item-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.car-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.car-container {
+  text-align: left; /* Align text to the left */
+  margin: 10px;
+  padding: 20px; /* Add padding for the shadow */
+  border: 5px solid black; /* Black border with 5px thickness */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  background-color: black; /* Black background inside the border */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Box shadow with black color */
+  color: white; /* White text color */
+  font-family: Candara;
+  margin-top: 200px;
+  
+}
+
+.car-container img {
+  width: auto; /* Adjust image width as needed */
+  height: 300px;
+}
+
+.car-title {
+  font-weight: bold;
+  font-family: Candara;
+  margin-top: 5px; /* Reduced margin */
+  margin-bottom: 2px; /* Reduced margin */
+}
+
+.car-condition,
+.car-price {
+  margin-top: 2px; /* Reduced margin */
+  margin-bottom: 2px; /* Reduced margin */
+}
+main {
+  padding-bottom: 100px; /* Add padding to the bottom to accommodate the footer */
+  padding-top: 100px;
+}
+.page-heading {
+  text-align: center; /* Align text in the middle */
+  padding-top: 100px;
+}

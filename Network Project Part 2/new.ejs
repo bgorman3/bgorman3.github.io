@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="#"><img src="Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" alt="Logo"></a>
+    </div>
+    <div class="search-container">
+      <input type="text" placeholder="Search...">
+      <button type="submit">Search</button>
+    </div>
+    <nav>
+
+         <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="item.html">Description</a></li>
+        <li><a href="items.html">Products</a></li>
+        <li><a href="new.html">Listings</a></li>
+      </ul>
+    </nav>
+  </header>
+    <main>
+        <h1>List a New Item</h1>
+        <form action="#" method="post">
+            <label for="condition">Condition:</label>
+            <select id="condition" name="condition">
+                <option value="new">New</option>
+                <!-- Add more options -->
+            </select><br>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required><br>
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" rows="4" cols="50" required></textarea><br>
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <div class="copyright">&copy; Edgy Media</div>
+        
+            <a href="https://www.facebook.com">Facebook</a>
+            <a href="https://www.twitter.com">Twitter</a>
+            <a href="https://www.instagram.com">Instagram</a>
+      
+    </footer>
+</body>
+</html>
