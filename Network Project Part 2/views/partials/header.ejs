@@ -1,17 +1,19 @@
 <header class="navbar">
-    <div class="logo">
+  <div class="logo">
       <a href="/"><img src="/images/Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" alt="Logo"></a>
-    </div>
-    <div class="search-container">
-      <input type="text" placeholder="Search...">
-      <button type="submit">Search</button>
-    </div>
-    <nav>
-         <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/users/item">Description</a></li>
-        <li><a href="/users/items">Products</a></li>
-        <li><a href="/users/new">Listings</a></li>
+  </div>
+  <div class="search-container">
+      <form action="/items/search" method="GET"> <!-- Form for search functionality -->
+          <input type="text" name="term" placeholder="Search...">
+          <button type="submit">Search</button>
+      </form>
+  </div>
+  <nav>
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/items/1">Description</a></li>
+          <li><a href="/items">Products</a></li>
+          <li><a href="/items/new">Listings</a></li>
       </ul>
-    </nav>
-  </header>
+  </nav>
+</header>

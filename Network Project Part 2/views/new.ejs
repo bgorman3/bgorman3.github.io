@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    <main>
+        <h1>List a New Item</h1>
+        <form action="/items" method="post">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="Nice Nissan" required><br>
+            <label for="seller">Seller:</label>
+            <input type="text" id="seller" name="seller" value="Anish Venkatesh" required><br>
+            <label for="condition">Condition:</label>
+            <input type="text" id="condition" name="condition" value="New" required><br>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" value="1179.99" required><br>
+            <label for="details">Details:</label>
+            <input type="text" id="details" name="details" value="Personal Collection" required><br>
+            <label for="image">Image:</label>
+            <input type="text" id="image" name="image" value="/images/car7.png" required><br>
+            <label for="totalOffers">Total Offers:</label>
+            <input type="number" id="totalOffers" name="totalOffers" value="2" required><br>
+            <label for="active">Active:</label>
+            <input type="checkbox" id="active" name="active" checked><br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

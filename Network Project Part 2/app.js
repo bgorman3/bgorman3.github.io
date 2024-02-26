@@ -3,6 +3,9 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const userRoutes = require('./routes/UserRoutes');
+const bodyParser = require('body-parser');
+//const itemsRoutes = require('./routes/ItemsRoutes');
+
 
 // Create Express app
 const app = express();
@@ -17,6 +20,8 @@ app.set('view engine', 'ejs');
 // Middleware setup
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
@@ -27,7 +32,10 @@ app.get('/', (req, res)=>{
 });
 
 // Use UserRoutes for other routes
-app.use('/users', userRoutes);
+app.use('/', userRoutes);
+
+
+
 
 // Error handling middleware
 app.use((req, res, next) => {
@@ -42,6 +50,7 @@ app.use((err, req, res, next) => {
     const message = err.message || 'Internal Server Error';
     res.status(status).render('error', { error: { status, message } });
 });
+
 
 // Start the server
 app.listen(port, host, () => {
