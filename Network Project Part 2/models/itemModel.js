@@ -1,5 +1,5 @@
-const { DateTime } = require("luxon");
-const { v4: uuidv4 } = require('uuid');
+//const { DateTime } = require("luxon");
+//const { v4: uuidv4 } = require('uuid');
 const items = [
     {
 
@@ -114,7 +114,10 @@ exports.searchItems = (searchTerm) => {
     });
     return searchResults;
 };
-
+exports.addItem = (newItem) => {
+    newItem.id = items.length + 1;
+    items.push(newItem);
+};
 /*
 this method works
 module.exports = {

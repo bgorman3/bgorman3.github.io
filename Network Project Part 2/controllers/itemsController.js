@@ -85,8 +85,6 @@ exports.editItemView = (req, res) => {
         res.status(404).render('error', { message: 'Item not found' });
     }
 };
-
-
 exports.editItem = (req, res) => {
     const itemId = parseInt(req.params.id);
     const updatedFields = req.body;
@@ -104,7 +102,7 @@ exports.editItem = (req, res) => {
 
     if (isUpdated) {
         // Redirect to the item details page
-        return res.redirect(`items/${itemId}`);
+        return res.redirect(`/items/${itemId}`);
     } else {
         // Handle error, item not found
         res.status(404).render('error', { message: 'Item not found' });
