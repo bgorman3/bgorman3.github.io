@@ -22,6 +22,30 @@ exports.getAllItems = (req, res, next) => {
         });
 };
 
+
+
+
+exports.getItemDetails = (req, res, next) => {
+    const itemId = req.params.id; // No need to parse to integer
+    console.log('Requested Item ID:', itemId);
+
+    // Use the model's method to get the item by ID
+    itemsModel.findById(itemId)
+        .then(item => {
+            console.log('Retrieved Item:', item);
+            if (item) {
+                res.render('item', { item: item }); // Render the 'item' view instead of 'searchResults'
+            } else {
+                res.status(404).render('error', { message: 'Item not found' });
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching item from the database:', err);
+            next(err);
+        });
+};
+
+
 exports.searchItems = (req, res) => {
     const searchTerm = req.query.term.toLowerCase();
     const searchResults = itemsModel.searchItems(searchTerm);
@@ -32,23 +56,6 @@ exports.searchItems = (req, res) => {
         res.status(404).render('error', { message: 'No items found' });
     }
 };
-
-
-
-exports.getItemDetails = (req, res) => {
-    const itemId = parseInt(req.params.id);
-    console.log('Requested Item ID:', itemId);
-    const item = itemsModel.getItemById(itemId);
-    console.log('Retrieved Item:', item);
-    if (item) {
-        res.render('item', { item: item }); // Render the 'item' view instead of 'searchResults'
-    } else {
-        res.status(404).render('error', { message: 'Item not found' });
-    }
-};
-
-
-
 
         
 
@@ -129,16 +136,22 @@ exports.editItem = (req, res) => {
 };
 
 
-exports.deleteItem = (req, res) => {
-    const itemId = parseInt(req.params.id);
-    const isDeleted = itemsModel.deleteItem(itemId);
-    if (isDeleted) {
-        // Redirect to the item listing page
-        res.redirect('items');
-    } else {
-        // Handle error, item not found
-        res.status(404).render('error', { message: 'Item not found' });   
-     }
+
+exports.deleteItem = async (req, res) => {
+    const itemId = req.params.id;
+
+    try {
+        const item = await Item.findById(itemId);
+        if (!item) {
+            res.status(404).render('error', { message: 'Item not found' });
+            return;
+        }
+
+        await item.remove();
+        res.redirect('/items');
+    } catch (err) {
+        res.status(500).render('error', { message: 'Error deleting item' });
+    }
 };
 
 exports.renderSellPage = (req, res) => {

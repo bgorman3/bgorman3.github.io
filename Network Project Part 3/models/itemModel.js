@@ -58,6 +58,7 @@ exports.getItemById = (itemId) => {
     return item;
 };
 // Function to delete an item
+
 exports.deleteItem = (itemId) => {
     const index = items.findIndex(item => item.id === itemId);
     if (index !== -1) {

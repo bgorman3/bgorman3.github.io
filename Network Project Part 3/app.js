@@ -1,9 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
+const path = require('path');
 const userRoutes = require('./routes/UserRoutes');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 
 const app = express();
 
@@ -28,6 +30,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get('/', (req, res) => {
   res.render('index');
