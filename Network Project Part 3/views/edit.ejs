@@ -11,8 +11,7 @@
     <main>
         <div class="main-container">
             <h1>Edit Item</h1>
-            <form action="/items/<%= item.id %>" method="POST" enctype="multipart/form-data">
-
+            <form action="/items/<%= item.id %>/edit" method="POST" enctype="multipart/form-data">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" value="<%= item.title %>">
                 <label for="seller">Seller:</label>
@@ -21,9 +20,6 @@
                 <select id="condition" name="condition" required>
                     <option value="" disabled>Select a condition</option>
                     <option value="new" <%= item.condition === 'new' ? 'selected' : '' %>>New</option>
-                    <option value="like_new" <%= item.condition === 'like_new' ? 'selected' : '' %>>Like New</option>
-                    <option value="very_good" <%= item.condition === 'very_good' ? 'selected' : '' %>>Very Good</option>
-                    <option value="good" <%= item.condition === 'good' ? 'selected' : '' %>>Good</option>
                     <option value="used" <%= item.condition === 'used' ? 'selected' : '' %>>Used</option>  
                 </select>
                 <label for="price">Price:</label>

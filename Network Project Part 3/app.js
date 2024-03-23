@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
+
 const path = require('path');
 const userRoutes = require('./routes/UserRoutes');
 const bodyParser = require('body-parser');
@@ -26,12 +27,12 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(morgan('tiny'));
 
+//app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/public/images', express.static(path.join(__dirname, 'public', 'images')));
 app.get('/', (req, res) => {
   res.render('index');
 });

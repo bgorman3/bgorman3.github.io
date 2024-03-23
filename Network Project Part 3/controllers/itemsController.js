@@ -1,5 +1,6 @@
 const itemsModel = require('../models/itemModel');
 const fs = require('fs');
+const { default: mongoose } = require('mongoose');
 const path = require('path');
 
 
@@ -48,13 +49,19 @@ exports.getItemDetails = (req, res, next) => {
 
 exports.searchItems = (req, res) => {
     const searchTerm = req.query.term.toLowerCase();
-    const searchResults = itemsModel.searchItems(searchTerm);
-    if (searchResults && searchResults.length >  0) {
-        res.render('searchResults', { results: searchResults });
-    } else {
-        // Handle the case where no results are found
-        res.status(404).render('error', { message: 'No items found' });
-    }
+    itemsModel.find({ title: new RegExp(searchTerm, 'i') })
+        .then(searchResults => {
+            if (searchResults && searchResults.length > 0) {
+                res.render('searchResults', { results: searchResults });
+            } else {
+                // Handle the case where no results are found
+                res.status(404).render('error', { message: 'No items found' });
+            }
+        })
+        .catch(err => {
+            // Handle the error
+            res.status(500).render('error', { message: 'An error occurred while searching for items' });
+        });
 };
 
         
@@ -71,14 +78,10 @@ exports.createItem = (req, res, next) => {
             condition: req.body.condition,
             price: parseFloat(req.body.price),
             details: req.body.details,
-            image: '/public/images/car1.png', // Default image path or update it as needed
+            image: req.body.image, // Use the uploaded image path or default to the default image
             totalOffers: 0,
             active: true
         });
-
-        if (req.file) {
-            newItem.image = `/images/${req.file.filename}`;
-        }
 
         // Save the new item to the database
         newItem.save()
@@ -100,59 +103,59 @@ exports.createItem = (req, res, next) => {
 };
 
 
-exports.editItemView = (req, res) => {
-    // render edit view
-    const itemId = parseInt(req.params.id);
-    const item = itemsModel.getItemById(itemId);
-    if (item) {
-        res.render('edit', { item: item });
-    } else {
-        // Respond with 404 Not Found if item is not found
-        res.status(404).render('error', { message: 'Item not found' });
+exports.editItemView = async (req, res) => {
+    const itemId = req.params.id;
+    try {
+        const item = await itemsModel.findById(itemId);
+        if (item) {
+            res.render('edit', { item: item });
+        } else {
+            res.status(404).render('error', { message: 'Item not found' });
+        }
+    } catch (err) {
+        res.status(500).render('error', { message: 'An error occurred' });
     }
 };
-exports.editItem = (req, res) => {
-    const itemId = parseInt(req.params.id);
+
+exports.editItem = async (req, res) => {
+    const itemId = req.params.id;
     const updatedFields = req.body;
-    const currentItem = itemsModel.getItemById(itemId);
-   
-    // Merge updated fields into the current item
-    const updatedItem = { ...currentItem, ...updatedFields };
-    updatedItem.price = parseInt(updatedItem.price);
+    updatedFields.price = parseFloat(updatedFields.price);
 
     if (req.file) {
-        updatedItem.image = `/images/${req.file.filename}`;
+        updatedFields.image = `/images/${req.file.filename}`;
     }
-
-    const isUpdated = itemsModel.updateItem(itemId, updatedItem);
-
-    if (isUpdated) {
-        // Redirect to the item details page
-        return res.redirect(`/items/${itemId}`);
-    } else {
-        // Handle error, item not found
-        res.status(404).render('error', { message: 'Item not found' });
-    }
-};
-
-
-
-exports.deleteItem = async (req, res) => {
-    const itemId = req.params.id;
 
     try {
-        const item = await Item.findById(itemId);
-        if (!item) {
+        const item = await itemsModel.findByIdAndUpdate(itemId, updatedFields, { new: true });
+        if (item) {
+           return res.redirect(`/items`); // Redirect to the items page
+        } else {
             res.status(404).render('error', { message: 'Item not found' });
-            return;
         }
-
-        await item.remove();
-        res.redirect('/items');
     } catch (err) {
-        res.status(500).render('error', { message: 'Error deleting item' });
+        res.status(500).render('error', { message: 'An error occurred' });
     }
 };
+
+
+exports.deleteItem = (req, res) => {
+    let itemId = req.params.id;
+    itemsModel.findOneAndDelete({_id: itemId})
+        .then(docs => {
+            if(docs) {
+                res.send(docs);
+                console.log("Deleted : ", docs);
+            } else {
+                res.status(404).send('Item not found');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send(err);
+        });
+};
+
 
 exports.renderSellPage = (req, res) => {
     // Render the "Sell" page
