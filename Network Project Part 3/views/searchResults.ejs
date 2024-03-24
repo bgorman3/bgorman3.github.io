@@ -21,7 +21,9 @@
                     <p>Seller: <%= result.seller %></p>
                     <p>Condition: <%= result.condition %></p>
                     <p>Price: $<%= result.price %></p>
-                    <!-- Add more item details here -->
+                    <p class="car-id">ID: <%= result.id %></p>
+                    <p>Active: <%= result.active %></p>
+               
                 </div>
             <% }); %>
         </div>
@@ -30,3 +32,5 @@
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>
+
+

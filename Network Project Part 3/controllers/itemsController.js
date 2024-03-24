@@ -6,6 +6,9 @@ const path = require('path');
 
 exports.getAllItems = (req, res, next) => {
     itemsModel.find()
+
+
+    
         .then(allItems => {
             if (allItems.length === 0) {
                 console.log('No items found in the database');
@@ -49,22 +52,25 @@ exports.getItemDetails = (req, res, next) => {
 
 exports.searchItems = (req, res) => {
     const searchTerm = req.query.term.toLowerCase();
-    itemsModel.find({ title: new RegExp(searchTerm, 'i') })
-        .then(searchResults => {
-            if (searchResults && searchResults.length > 0) {
-                res.render('searchResults', { results: searchResults });
-            } else {
-                // Handle the case where no results are found
-                res.status(404).render('error', { message: 'No items found' });
-            }
-        })
-        .catch(err => {
-            // Handle the error
-            res.status(500).render('error', { message: 'An error occurred while searching for items' });
-        });
+    itemsModel.find({
+        $or: [
+            { title: new RegExp(searchTerm, 'i') },
+            { details: new RegExp(searchTerm, 'i') }
+        ]
+    })
+    .then(searchResults => {
+        if (searchResults && searchResults.length > 0) {
+            res.render('searchResults', { results: searchResults });
+        } else {
+            // Handle the case where no results are found
+            res.render('noResults', { message: 'No items found' }); // Render a 'noResults' view instead of an error
+        }
+    })
+    .catch(err => {
+        // Handle the error
+        res.status(500).render('error', { message: 'An error occurred while searching for items' });
+    });
 };
-
-        
 
 exports.createItem = (req, res, next) => {
     console.log('Form data received:', req.body); // Log the received form data
