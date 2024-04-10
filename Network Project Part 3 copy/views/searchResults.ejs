@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+
+    <main>
+        <h1>Search Results</h1>
+        <div class="item-grid">
+            <% results.forEach(result => { %>
+                <div class="item-container">
+                    <a href="/items/<%= result.id %>">
+                        <img src="<%= result.image %>" alt="<%= result.title %>">
+                    </a>
+                    <p>Title: <%= result.title %></p>
+                    <p>Seller: <%= result.seller %></p>
+                    <p>Condition: <%= result.condition %></p>
+                    <p>Price: $<%= result.price %></p>
+                    <p class="car-id">ID: <%= result.id %></p>
+                    <p>Active: <%= result.active %></p>
+               
+                </div>
+            <% }); %>
+        </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+
+

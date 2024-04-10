@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Detail</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    <main>
+        <div class="main-container">
+            <h1>Edit Item</h1>
+            <form action="/items/<%= item.id %>/edit" method="POST" enctype="multipart/form-data">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="<%= item.title %>">
+                <label for="seller">Seller:</label>
+                <input type="text" id="seller" name="seller" value="<%= item.seller %>">
+                <label for="condition">Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="" disabled>Select a condition</option>
+                    <option value="new" <%= item.condition === 'new' ? 'selected' : '' %>>New</option>
+                    <option value="used" <%= item.condition === 'used' ? 'selected' : '' %>>Used</option>  
+                </select>
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" value="<%= item.price %>">
+                <label for="details">Details:</label>
+                <textarea id="details" name="details"><%= item.details %></textarea>
+                <img src="<%= item.image %>" alt="<%= item.title %>" width="100">
+                <input type="file" id="image" name="image" accept="image/*">
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
