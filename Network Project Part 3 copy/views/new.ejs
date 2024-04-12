@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+           <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +14,11 @@
         <h1>List a New Item</h1>
         <form action="/items" method="post" enctype="multipart/form-data">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" value="Nice Nissan" required><br>
+            <input type="text" id="title" name="title"  required><br>
+
+            <p>Seller Name: <%= firstName %> <%= lastName %></p>
             <label for="seller">Seller:</label>
-            <input type="text" id="seller" name="seller" value="Anish Venkatesh" required><br>
+           
             <label for="condition">Condition:</label>
             <select name="condition" id="condition">
                 <option value="new">New</option>
@@ -22,24 +26,24 @@
             </select>
             <br>
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" value="1179.99" required step="0.01" oninput="validatePrice(this)"><br>
+            <input type="number" id="price" name="price" oninput="validatePrice(this)"><br>
 
             <script>
-            function validatePrice(input) {
-                let value = parseFloat(input.value);
-                if (value.toFixed(2) != input.value) {
-                    input.setCustomValidity('Please enter a number with up to two decimal places.');
-                } else {
-                    input.setCustomValidity('');
+                function validatePrice(input) {
+                    let value = parseFloat(input.value);
+                    if (value.toFixed(2) != input.value) {
+                        input.setCustomValidity('Please enter a number with exactly two decimal places.');
+                    } else {
+                        input.setCustomValidity('');
+                    }
                 }
-            }
-            </script>
+                </script>
             <label for="details">Details:</label>
-            <input type="text" id="details" name="details" value="Personal Collection" required><br>
+            <input type="text" id="details" name="details"  required><br>
             <label for="image">Image:</label>
             <input type="file" id="image" name="image" accept="image/*" required><br>
             <label for="totalOffers">Total Offers:</label>
-            <input type="number" id="totalOffers" name="totalOffers" value="2" required><br>
+            <input type="number" id="totalOffers" name="totalOffers"  required><br>
             <label for="active">Active:</label>
             <input type="checkbox" id="active" name="active" checked><br>
             <button type="submit">Submit</button>
@@ -48,3 +52,5 @@
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>
+
+        

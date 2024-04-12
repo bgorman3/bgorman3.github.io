@@ -1,23 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
+const {isGuest, isLoggedIn} = require('../middlewares/auth');
 const path = require('path');
 
 
-router.get('/newuser', userController.renderSignupForm);
-router.post('/user', userController.create);
-router.get('/login', userController.getUserLogin);
+router.get('/newuser',isGuest, userController.renderSignupForm);
+router.post('/', isGuest, userController.create);
+//router.post('/user', userController.create);
+router.get('/login',isGuest, userController.getUserLogin);
+router.post('/login',isGuest, userController.login);
+//GET /users/profile: send user's profile page
+router.get('/profile', isLoggedIn, userController.profile);
+router.get('/logout',isLoggedIn, userController.logout);
 
 
 
-
-
-/*router.post('/items', upload.single('image'), itemsController.createItem); // Create a new item
-router.get('/items/search', itemsController.searchItems); // Search for items
-router.get('/items/:id', itemsController.getItemDetails); // Get item details
-router.get('/items/:id/edit', itemsController.editItemView);
-router.post('/items/:id/edit', upload.single('image'), itemsController.editItem);
-router.delete('/items/:id', itemsController.deleteItem);
-router.get('/items', itemsController.getAllItems); // List all items
-*/
 module.exports = router;

@@ -4,6 +4,8 @@ const router = express.Router();
 const itemsController = require('../controllers/itemsController');
 const multer = require('multer');
 const path = require('path');
+const {isLoggedIn, isAuthor} = require('../middlewares/auth');
+const { validateId } = require('../middlewares/validator');
 
 
 const storage = multer.diskStorage({
@@ -22,14 +24,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Routes for items
-router.get('/items/new', itemsController.renderSellPage); // New item form
-router.post('/items', upload.single('image'), itemsController.createItem); // Create a new item
+router.get('/items/new', isLoggedIn, itemsController.renderSellPage); // New item form
+router.post('/items', isLoggedIn, upload.single('image'), itemsController.createItem); // Create a new item
 router.get('/items/search', itemsController.searchItems); // Search for items
-router.get('/items/:id', itemsController.getItemDetails); // Get item details
-router.get('/items/:id/edit', itemsController.editItemView);
-router.post('/items/:id/edit', upload.single('image'), itemsController.editItem);
-router.delete('/items/:id', itemsController.deleteItem);
+router.get('/items/:id', validateId, itemsController.getItemDetails); // Get item details
+router.get('/items/:id/edit', isLoggedIn, isAuthor, validateId, itemsController.editItemView);
+router.post('/items/:id/edit', isLoggedIn, isAuthor, validateId, upload.single('image'), itemsController.editItem);
+router.delete('/items/:id', isLoggedIn, isAuthor, validateId, itemsController.deleteItem);
 router.get('/items', itemsController.getAllItems); // List all items
+
+
 
 module.exports = router;

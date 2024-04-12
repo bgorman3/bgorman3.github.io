@@ -228,3 +228,60 @@ main {
   margin-top:  60px; /* If you prefer using margin instead of padding */
   margin-bottom:  30px; /* If you prefer using margin instead of padding */
 }
+.success {
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.success button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.success button:hover {
+  background-color: #555;
+}
+.error {
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.error button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.error button:hover {
+  background-color: #555;
+}

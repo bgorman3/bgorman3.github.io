@@ -1,4 +1,5 @@
 const itemsModel = require('../models/itemModel');
+const User = require('../models/userModel');
 const fs = require('fs');
 const { default: mongoose } = require('mongoose');
 const path = require('path');
@@ -31,10 +32,16 @@ exports.getAllItems = (req, res, next) => {
 
 exports.getItemDetails = (req, res, next) => {
     const itemId = req.params.id; // No need to parse to integer
+    if(!itemId.match(/^[0-9a-fA-F]{24}$/)) {
+        let err = new Error('Invalid Item id');
+        err.status = 400;
+        return next(err);
+    }
     console.log('Requested Item ID:', itemId);
 
     // Use the model's method to get the item by ID
     itemsModel.findById(itemId)
+   
         .then(item => {
             console.log('Retrieved Item:', item);
             if (item) {
@@ -72,43 +79,56 @@ exports.searchItems = (req, res) => {
     });
 };
 
+
 exports.createItem = (req, res, next) => {
     console.log('Form data received:', req.body); // Log the received form data
 
     // Ensure that req.body is defined and contains the expected properties
     if (req.body && req.body.title) {
-        // Access form data from req.body
-        const newItem = new itemsModel({
-            title: req.body.title,
-            seller: req.body.seller,
-            condition: req.body.condition,
-            price: parseFloat(req.body.price),
-            details: req.body.details,
-            image: req.body.image, // Use the uploaded image path or default to the default image
-            totalOffers: 0,
-            active: true
-        });
+        // Fetch the user from the database
+        User.findById(req.session.user)
+            .then(user => {
+                if (user) {
+                    // Access form data from req.body
+                    const newItem = new itemsModel({
+                        title: req.body.title,
+                        seller: user.firstName + ' ' + user.lastName,
+                        condition: req.body.condition,
+                        price: parseFloat(req.body.price),
+                        details: req.body.details,
+                        image: req.body.image, // Use the uploaded image path or default to the default image
+                        totalOffers: 0,
+                        active: true
+                    });
 
-        // Save the new item to the database
-        newItem.save()
-            .then((item) => {
-                console.log(item);
-                // Redirect to the item listing page
-                res.redirect('items');
+                    // Save the new item to the database
+                    newItem.save()
+                        .then((item) => {
+                            console.log(item);
+                            req.flash('success', 'Item created successfully');
+                            res.redirect('items');
+                        })
+                        .catch(err => {
+                            if(err.name === 'ValidationError') {
+                                err.status = 400;
+                            }
+                            req.flash('error', 'An error occurred while creating the item');
+                            next(err);
+                        });
+                } else {
+                    // Handle case when user is not found in the database
+                    res.status(400).send('User not found');
+                }
             })
             .catch(err => {
-                if(err.name === 'ValidationError') {
-                    err.status = 400;
-                }
-                next(err);
+                console.log(err);
+                res.status(500).send(err);
             });
     } else {
         // Handle the case when form data is missing or incorrect
         res.status(400).send('Invalid form data');
     }
 };
-
-
 exports.editItemView = async (req, res) => {
     const itemId = req.params.id;
     try {
@@ -135,11 +155,14 @@ exports.editItem = async (req, res) => {
     try {
         const item = await itemsModel.findByIdAndUpdate(itemId, updatedFields, { new: true });
         if (item) {
+            req.flash('success', 'Item updated successfully');
            return res.redirect(`/items`); // Redirect to the items page
         } else {
+            req.flash('error', 'Item not found');
             res.status(404).render('error', { message: 'Item not found' });
         }
     } catch (err) {
+        req.flash('error', 'An error occurred while updating the item');
         res.status(500).render('error', { message: 'An error occurred' });
     }
 };
@@ -150,13 +173,16 @@ exports.deleteItem = (req, res) => {
     itemsModel.findOneAndDelete({_id: itemId})
         .then(docs => {
             if(docs) {
+                req.flash('success', 'Item deleted successfully');
                 res.send(docs);
                 console.log("Deleted : ", docs);
             } else {
+                req.flash('error', 'Item not found');
                 res.status(404).send('Item not found');
             }
         })
         .catch(err => {
+            req.flash('error', 'An error occurred while deleting the item');
             console.log(err);
             res.status(500).send(err);
         });
@@ -164,153 +190,31 @@ exports.deleteItem = (req, res) => {
 
 
 exports.renderSellPage = (req, res) => {
-    // Render the "Sell" page
-    res.render('new');
-};
+    // Check if the user object exists
+    if (req.session.user) {
+        // Fetch the user from the database
+        User.findById(req.session.user)
+            .then(user => {
+                if (user) {
+                    console.log(user.firstName, user.lastName); // Log the first and last name
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*first to get rid o f 
-
-exports.updateItem = (req, res, next) => {
-    const itemId = req.params.itemId;
-    const updatedItem = req.body;
-
-    if (auctionItems.updateById(itemId, updatedItem)) {
-        // Redirect to the items page after successful update
-        res.redirect('/items');
+                    // Render the "Sell" page
+                    res.render('new', {
+                        firstName: user.firstName,
+                        lastName: user.lastName
+                    });
+                } else {
+                    req.flash('error', 'User not found');
+                    res.redirect('/login');
+                }
+            })
+            .catch(err => {
+                req.flash('error', 'An error occurred while fetching the user');
+                console.log(err);
+                res.status(500).send(err);
+            });
     } else {
-        // Handle error (e.g., item not found)
-        const err = new Error('Cannot find an item with id ' + itemId);
-        err.status =  404;
-        next(err);
+        // Redirect to login or show an error
+        res.redirect('/login');
     }
 };
-
-exports.editItem = (req, res) => {
-    const itemId = req.params.itemId;
-    const item = auctionItems.findById(itemId);
-
-    if (!item) {
-        res.status(404).send('Item not found');
-        return;
-    }
-
-    res.render('pages/edit', { item: item });
-};
-
-
-
-/*exports.edit = (req, res, next) => {
-    let itemId = req.params.itemId;
-    let item = model.findById(itemId);
-    if (item) {
-        res.render('pages/edit', {item: item});
-    } else{
-        let err = new Error('Cannot find a item with id ' + itemId);
-        err.status = 404;
-        next(err);
-    }
-};
-
-exports.updateItem = (req, res, next) => {
-    const itemId = req.params.itemId;
-    const updatedItem = req.body;
-
-    if (auctionItems.updateById(itemId, updatedItem)) {
-        // Sort items after updating
-        auctionItems.auctionItems.sort((a, b) => a.price - b.price);
-        // Redirect to the items page after successful update
-        res.redirect('/items');
-    } else {
-        // Handle error (e.g., item not found)
-        const err = new Error('Cannot find an item with id ' + itemId);
-        err.status =  404;
-        next(err);
-    }
-};
-
-*/ /*second
-exports.deleteItem = (req, res) => {
-    const itemId = req.params.itemId;
-    const index = auctionItems.findIndex(item => item.id === itemId);
-    if (index !== -1) {
-        auctionItems.splice(index,   1);
-        res.redirect('/items'); // Redirect to items page after deletion
-    } else {
-        
-        res.status(404).send('Item not found');
-    }
-};
-
-exports.renderItemsPage = (req, res) => {
-    const sortBy = req.query.sortBy;
-    let sortedItems = [...auctionItems.find()]; // Retrieve all items
-
-    if (sortBy === 'price') {
-        sortedItems.sort((a, b) => a.price - b.price);
-    } else if (sortBy === 'dateTaken') {
-        sortedItems.sort((a, b) => new Date(a.dateTaken) - new Date(b.dateTaken));
-    }
-
-    res.render('pages/items', { items: sortedItems });
-};
-
-exports.renderItemPage = (req, res) => {
-    const itemId = req.params.itemId;
-    const item = auctionItems.find(item => item.id.toString() === itemId);
-
-    if (!item) {
-        res.status(404).send('Item not found');
-        return;
-    }
-
-    res.render('pages/item', { item: item });
-
-   
-};
-exports.renderNewItemForm = (req, res) => {
-    res.render('pages/new-item');
-};
-exports.addItem = (req, res) => {
-    const newItem = req.body;
-
-    // Validate newItem here if needed
-
-    auctionItems.save(newItem); // Assuming auctionItems is imported correctly
-
-    res.redirect('/items'); // Redirect to the items page after adding the new item
-};
-
-/*
-exports.renderItemsPage = (req, res) => {
-    // Assuming auctionItems is imported correctly from your model
-    res.render('pages/items', { items: auctionItems.auctionItems });
-};
-*/

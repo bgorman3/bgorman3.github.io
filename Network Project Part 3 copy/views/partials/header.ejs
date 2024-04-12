@@ -1,21 +1,56 @@
 <header class="navbar">
-  <div class="logo">
+    <!-- Display error messages -->
+    <% if (typeof errorMessages !== 'undefined' && errorMessages.length > 0) { %>
+        <% errorMessages.forEach(function(message) { %>
+          <div class="error" id="errorPopup">
+            <%= message %>
+            <button onclick="document.getElementById('errorPopup').style.display='none'">OK</button>
+          </div>
+          <script>
+            setTimeout(function() {
+              document.getElementById('errorPopup').style.display='none';
+            }, 7000);
+          </script>
+        <% }); %>
+      <% } %>
+  
+    <!-- Display success messages -->
+    <% if (typeof successMessages !== 'undefined' && successMessages.length > 0) { %>
+      <% successMessages.forEach(function(message) { %>
+        <div class="success" id="successPopup">
+          <%= message %>
+          <button onclick="document.getElementById('successPopup').style.display='none'">OK</button>
+        </div>
+        <script>
+          setTimeout(function() {
+            document.getElementById('successPopup').style.display='none';
+          }, 7000);
+        </script>
+      <% }); %>
+    <% } %>
+  
+    <div class="logo">
       <a href="/"><img src="/images/Blank_1_Panel_Landscape_Comic_Strip-transformed2.png" alt="Logo"></a>
-  </div>
-  <div class="search-container">
+    </div>
+    <div class="search-container">
       <form action="/items/search" method="GET"> <!-- Form for search functionality -->
-          <input type="text" name="term" placeholder="Search...">
-          <button type="submit">Search</button>
+        <input type="text" name="term" placeholder="Search...">
+        <button type="submit">Search</button>
       </form>
-  </div>
-  <nav>
+    </div>
+    <nav>
       <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/items/65fe45969a249278f6e22bb7">Description</a></li>
-          <li><a href="/items">Products</a></li>
-          <li><a href="/items/new">Listings</a></li>
-          <li><a href="/user/newuser">Signup</a></li>
-        
+        <li><a href="/">Home</a></li>
+        <li><a href="/items/65fe45969a249278f6e22bb7">Description</a></li>
+        <li><a href="/items">Products</a></li>
+        <li><a href="/items/new">Listings</a></li>
+        <% if(!user) { %>
+        <li><a href="/user/newuser">Signup</a></li>
+        <li><a href="/user/login">Login</a></li>
+        <% } else { %>
+        <li><a href="/user/profile">Profile</a></li>
+        <li><a href="/user/logout">Logout</a></li>
+        <% } %>
       </ul>
-  </nav>
+    </nav>
 </header>
