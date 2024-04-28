@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Details</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    <main>
+        <h1>Offer Details</h1>
+        <div class="offer-grid">
+            <% if(offers && offers.length > 0) { %>
+                <% offers.forEach(function(offer) { %>
+                    <div class="car-container">
+                        <p>Offer Amount: <%= offer.amount %></p>
+                        <p>Status: <%= offer.status %></p>
+                        <p>User ID: <%= offer.user._id %></p>
+                        <p>User Name: <%= offer.user.firstName %> <%= offer.user.lastName %></p>
+                        
+                  
+                        <form id="acceptForm-<%= offer._id %>" action="/offers/<%= offer._id %>/accept" method="POST">
+                            <input type="hidden" name="_method" value="PATCH">
+                            <button type="submit">Accept</button>
+                        </form>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No offer details available.</p>
+            <% } %>
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+
+<script>
+    document.querySelectorAll('form[id^="acceptForm-"]').forEach(form => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        const offerId = form.id.split('-')[1]; 
+        const url = `/offers/${offerId}/accept`;
+
+        fetch(url, {
+          method: 'PATCH'
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/profile'; // Or redirect as appropriate
+          } else {
+            window.location.href = '/user/profile';
+            // Handle fetch errors, maybe display a message to the user
+            alert("Offer Accepted  Please Reload page."); 
+          }
+        })
+        .catch(error => console.error('Error accepting offer:', error));
+      });
+    });
+</script>

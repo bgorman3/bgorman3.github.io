@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <% include('./partials/header.ejs') %>
+
+    <main>
+        <div class="item-detail">
+            <img src="<%= item.image %>" alt="<%= item.title %>">
+            <div class="details">
+                <h2><%= item.title %></h2>
+                <p>Seller: <%= item.seller %></p>
+                <p>Condition: <%= item.condition %></p>
+                <p>Price: $<%= item.price.toFixed(2) %></p>
+                <!-- Add more item details here -->
+            </div>
+        </div>
+     
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

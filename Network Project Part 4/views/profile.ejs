@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    <main>
+        <h1>Profile Listings</h1>
+        <div class="car-grid">
+            <% if(items.length === 0) { %>
+                <p>You have not listed any items.</p>
+            <% } else { %>
+                <% items.forEach(item => { %>
+                    <div class="car-container">
+                        <a href="/items/<%= item.id %>"><%= item.title %></a>
+                        <p class="car-title"><%= item.title %> (<%= item.details %>)</p>
+                        <p class="car-condition">Condition: <%= item.condition %></p>
+                        <p class="car-price">$<%= item.price %> | <%= item.totalOffers %> offers</p>
+                        <p class="car-seller">Seller: <%= item.seller %></p>
+                        <p class="car-id">ID: <%= item.id %></p>
+                        <p class="car-active">Active: <%= item.active %></p>
+            
+                        <% if(offers && offers.length > 0) { %>
+                            <p>Number of Offers on Your Item: <%= offers.length %></p>
+                            <form action="/items/<%= item._id %>/productoffers" method="GET">
+                                <button type="submit">View All Offers</button>
+                            </form>
+                        <% } else { %>
+                            <p>No offers yet.</p>
+                        <% } %>
+            
+                        <form action="/items/<%= item.id %>/edit" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
+                        
+                        <form id="deleteForm-<%= item.id %>" onsubmit="return confirm('Are you sure you want to delete item with ID <%= item.id %> ?')">
+                            <input type="hidden" name="_method" value="DELETE"> 
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+        <h1>Your Offers</h1>
+        <div class="car-grid">
+            <% if(userOffers.length === 0) { %>
+                <p>You have not made any offers.</p>
+            <% } else { %>
+                <% userOffers.forEach((offer, index) => { %>
+                    <div class="car-container">
+                        <p>Offer Number: <%= index + 1 %></p> <!-- Display the offer number -->
+                        <p>Offer ID: <%= offer._id %></p> <!-- Display the offer ID -->
+                        <p>Offer Amount: <%= offer.amount %></p>
+                        <p>Offered on: <%= offer.item.title %></p>
+                        <p>Status: <%= offer.status %></p>
+                       
+                        <% if(offer.item.active) { %>
+                            <form action="/offers/<%= offer._id %>" method="GET"> <!-- Include the offer ID in the form action -->
+                                <button type="submit">View Your Offer</button>
+                            </form>
+                        <% } %>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+
+<script>
+    document.querySelectorAll('form[id^="deleteForm-"]').forEach(form => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        const itemId = form.id.split('-')[1]; 
+        const url = `/items/${itemId}`;
+
+        fetch(url, {
+          method: 'DELETE'
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/items'; // Or redirect as appropriate
+          } else {
+            // Handle fetch errors, maybe display a message to the user
+            alert("Error deleting item."); 
+          }
+        })
+        .catch(error => console.error('Error deleting item:', error));
+      });
+    });
+    document.querySelectorAll('.accept-offer').forEach(button => {
+        button.addEventListener('click', () => {
+            const offerId = button.dataset.offerId;
+            fetch(`/offers/${offerId}/accept`, {
+                method: 'PATCH',
+                // Other fetch options...
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Wait for the server to finish processing the PATCH request
+                // Then redirect to the profile page
+                window.location.href = '/profile';
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+        });
+    });
+</script>

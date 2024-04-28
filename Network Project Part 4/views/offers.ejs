@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Details</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    <main>
+        <h1>Offer Details</h1>
+        <div class="offer-grid">
+            <% if(offer) { %>
+                <div class="car-container">
+                    <p>Offer Amount: <%= offer.amount %></p>
+                    <p>Status: <%= offer.status %></p>
+                    <p>Offer ID: <%= offer._id %></p> <!-- Display the offer ID -->
+                </div>
+            <% } else { %>
+                <p>No offer details available.</p>
+            <% } %>
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
