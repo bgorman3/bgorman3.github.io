@@ -1,6 +1,4 @@
-
-
-           <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +12,7 @@
         <h1>List a New Item</h1>
         <form action="/items" method="post" enctype="multipart/form-data">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title"  required><br>
+            <input type="text" id="title" name="title"><br>
 
             <p>Seller Name: <%= firstName %> <%= lastName %></p>
             <label for="seller">Seller:</label>
@@ -39,11 +37,10 @@
                 }
                 </script>
             <label for="details">Details:</label>
-            <input type="text" id="details" name="details"  required><br>
+            <input type="text" id="details" name="details"><br>
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept="image/*" required><br>
-            <label for="totalOffers">Total Offers:</label>
-            <input type="number" id="totalOffers" name="totalOffers"  required><br>
+            <input type="file" id="image" name="image" accept="image/*"><br>
+           
             <label for="active">Active:</label>
             <input type="checkbox" id="active" name="active" checked><br>
             <button type="submit">Submit</button>
@@ -52,5 +49,3 @@
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>
-
-        

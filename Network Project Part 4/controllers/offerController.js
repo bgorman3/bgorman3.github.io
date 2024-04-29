@@ -81,6 +81,8 @@ exports.viewAllOffers = (req, res, next) => {
             next(err);
         });
 };
+
+/*
 exports.createOffer = function(req, res) {
     console.log(req.body)
     const offerAmount = req.body.offerAmount;
@@ -104,6 +106,40 @@ exports.createOffer = function(req, res) {
         })
         .catch(err => {
             console.error(err);
+            res.status(500).send(err);
+        });
+};
+*/
+exports.createOffer = function(req, res) {
+    console.log(req.body)
+    const offerAmount = req.body.offerAmount;
+
+    const newOffer = new Offer({
+        amount: offerAmount,
+        item: req.params.id,
+        user: req.session.user
+    });
+
+    newOffer.save()
+        .then(savedOffer => {
+            console.log('Saved offer:', savedOffer);
+
+            // Find the item and increment its totalOffers field
+            return Item.findByIdAndUpdate(req.params.id, { $inc: { totalOffers: 1 } }, { new: true })
+                .then(updatedItem => {
+                    // Find the highest offer for the item
+                    return Offer.find({ item: req.params.id }).sort({ amount: -1 }).limit(1)
+                        .then(highestOffers => {
+                            // Flash a success message
+                            req.flash('success', 'You have successfully made an offer');
+                            // Render the item page with the highest offer
+                            res.render('item', { item: updatedItem, highestOffer: highestOffers[0] });
+                        });
+                });
+        })
+        .catch(err => {
+            console.error(err);
+            req.flash('error', 'An error occurred while creating the offer');
             res.status(500).send(err);
         });
 };

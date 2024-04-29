@@ -12,15 +12,17 @@
         <h1 class="page-heading">Car Collection Photos</h1>
         <div class="car-grid">
             <% items.forEach(item => { %>
-                <div class="car-container">
-                    <a href="/items/<%= item.id %>"><img src="<%= item.image %>" alt="<%= item.title %>"></a>
-                    <p class="car-title"><%= item.title %> (<%= item.details %>)</p>
-                    <p class="car-condition">Condition: <%= item.condition %></p>
-                    <p class="car-price">$<%= item.price %> | <%= item.totalOffers %> offers</p>
-                    <p class="car-seller">Seller: <%= item.seller %></p>
-                    <p class="car-id">ID: <%= item.id %></p>
-                    <p class="car-active">Active: <%= item.active %></p>
-                </div>
+                <% if(item.active) { %>
+                    <div class="car-container">
+                        <a href="/items/<%= item.id %>"><img src="<%= item.image %>" alt="<%= item.title %>"></a>
+                        <p class="car-title"><%= item.title %> (<%= item.details %>)</p>
+                        <p class="car-condition">Condition: <%= item.condition %></p>
+                        <p class="car-price">$<%= item.price %> | <%= item.totalOffers %> offers</p>
+                        <p class="car-seller">Seller: <%= item.seller %></p>
+                        <p class="car-id">ID: <%= item.id %></p>
+                        <p class="car-active">Active: <%= item.active %></p>
+                    </div>
+                <% } %>
             <% }) %>
         </div>
     </main>

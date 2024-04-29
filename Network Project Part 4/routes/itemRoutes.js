@@ -4,7 +4,7 @@ const itemsController = require('../controllers/itemsController');
 const multer = require('multer');
 const path = require('path');
 const {isLoggedIn, isAuthor, isNotSeller,isSeller} = require('../middlewares/auth');
-const { validateId } = require('../middlewares/validator');
+const { validateId,validateItem,validateAndSanitizeItem} = require('../middlewares/validator');
 const offerRoutes = require('./offerRoutes');
 const offerController = require('../controllers/offerController');
 
@@ -30,16 +30,21 @@ router.use('/items', itemRouter);
 
 // Now you can define routes on itemRouter
 itemRouter.get('/new', isLoggedIn, itemsController.renderSellPage); // New item form
-itemRouter.post('/', isLoggedIn, upload.single('image'), itemsController.createItem); // Create a new item
+itemRouter.post('/', validateAndSanitizeItem,isLoggedIn, upload.single('image'), itemsController.createItem); // Create a new item
 itemRouter.get('/search', itemsController.searchItems); // Search for items
 itemRouter.get('/:id', validateId, itemsController.getItemDetails); // Get item details
 itemRouter.get('/:id/edit', isLoggedIn, isAuthor, validateId, itemsController.editItemView);
-itemRouter.post('/:id/edit', isLoggedIn, isAuthor, validateId, upload.single('image'), itemsController.editItem);
-itemRouter.delete('/:id', isLoggedIn, isAuthor, validateId, itemsController.deleteItem);
+
+itemRouter.post('/:id/edit', validateAndSanitizeItem,isLoggedIn, validateItem, isAuthor, validateId, upload.single('image'), itemsController.editItem);//list new item
+
+itemRouter.delete('/:id', isLoggedIn,isAuthor, validateId, itemsController.deleteItem);
 itemRouter.get('/', itemsController.getAllItems); // List all items
-itemRouter.post('/:id/offers',isLoggedIn, offerController.createOffer); // Create an offer
-itemRouter.get('/:id/offers', isLoggedIn, offerController.getOffers); // Get offers
-itemRouter.get('/:id/productoffers', isLoggedIn, offerController.viewAllOffers); // View all offers on a specific item
+itemRouter.post('/:id/offers',validateAndSanitizeItem,isLoggedIn,isSeller, offerController.createOffer); // Create an offer
+itemRouter.get('/:id/offers', isLoggedIn,isSeller,offerController.getOffers); // Get offers
+
+
+
+itemRouter.get('/:id/productoffers', isLoggedIn,isAuthor,offerController.viewAllOffers); // View all offers on a specific item
 
 
 // Add the offerRoutes to the itemRouter

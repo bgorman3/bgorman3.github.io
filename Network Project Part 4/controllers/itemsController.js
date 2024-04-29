@@ -3,6 +3,7 @@ const User = require('../models/userModel');
 const fs = require('fs');
 const { default: mongoose } = require('mongoose');
 const path = require('path');
+const Offer = require('../models/offerModel');
 
 
 exports.getAllItems = (req, res, next) => {
@@ -41,11 +42,19 @@ exports.getItemDetails = (req, res, next) => {
 
     // Use the model's method to get the item by ID
     itemsModel.findById(itemId)
-   
         .then(item => {
             console.log('Retrieved Item:', item);
             if (item) {
-                res.render('item', { item: item }); // Render the 'item' view instead of 'searchResults'
+                // Find the highest offer for the item
+                Offer.find({item: itemId}).sort({amount: -1}).limit(1)
+                    .then(highestOffer => {
+                        // Render the 'item' view, passing the item and highestOffer to it
+                        res.render('item', { item: item, highestOffer: highestOffer[0] });
+                    })
+                    .catch(err => {
+                        console.error('Error fetching highest offer:', err);
+                        next(err);
+                    });
             } else {
                 res.status(404).render('error', { message: 'Item not found' });
             }
@@ -173,9 +182,18 @@ exports.deleteItem = (req, res) => {
     itemsModel.findOneAndDelete({_id: itemId})
         .then(docs => {
             if(docs) {
-                req.flash('success', 'Item deleted successfully');
-                res.send(docs);
-                console.log("Deleted : ", docs);
+                // Delete all offers associated with the item
+                Offer.deleteMany({ item: itemId })
+                    .then(() => {
+                        req.flash('success', 'Item and associated offers deleted successfully');
+                        res.send(docs);
+                        console.log("Deleted : ", docs);
+                    })
+                    .catch(err => {
+                        req.flash('error', 'An error occurred while deleting the offers');
+                        console.log(err);
+                        res.status(500).send(err);
+                    });
             } else {
                 req.flash('error', 'Item not found');
                 res.status(404).send('Item not found');

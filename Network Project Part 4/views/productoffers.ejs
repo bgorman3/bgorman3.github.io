@@ -19,11 +19,12 @@
                         <p>User ID: <%= offer.user._id %></p>
                         <p>User Name: <%= offer.user.firstName %> <%= offer.user.lastName %></p>
                         
-                  
-                        <form id="acceptForm-<%= offer._id %>" action="/offers/<%= offer._id %>/accept" method="POST">
-                            <input type="hidden" name="_method" value="PATCH">
-                            <button type="submit">Accept</button>
-                        </form>
+                        <% if(offer.status !== 'accepted') { %>
+                            <form id="acceptForm-<%= offer._id %>" action="/offers/<%= offer._id %>/accept" method="POST">
+                                <input type="hidden" name="_method" value="PATCH">
+                                <button type="submit">Accept</button>
+                            </form>
+                        <% } %>
                     </div>
                 <% }) %>
             <% } else { %>
