@@ -3,7 +3,7 @@ const router = express.Router();
 const itemsController = require('../controllers/itemsController');
 const multer = require('multer');
 const path = require('path');
-const {isLoggedIn, isAuthor, isNotSeller,isSeller} = require('../middlewares/auth');
+const {isLoggedIn, isAuthor, isSeller} = require('../middlewares/auth');
 const { validateId,validateItem,validateAndSanitizeItem} = require('../middlewares/validator');
 const offerRoutes = require('./offerRoutes');
 const offerController = require('../controllers/offerController');
@@ -39,7 +39,7 @@ itemRouter.post('/:id/edit', validateAndSanitizeItem,isLoggedIn, validateItem, i
 
 itemRouter.delete('/:id', isLoggedIn,isAuthor, validateId, itemsController.deleteItem);
 itemRouter.get('/', itemsController.getAllItems); // List all items
-itemRouter.post('/:id/offers',validateAndSanitizeItem,isLoggedIn,isSeller, offerController.createOffer); // Create an offer
+itemRouter.post('/:id/offers',isLoggedIn,isSeller, offerController.createOffer); // Create an offer
 itemRouter.get('/:id/offers', isLoggedIn,isSeller,offerController.getOffers); // Get offers
 
 

@@ -75,8 +75,23 @@ exports.validateItem = (req, res, next) => {
 
 exports.validateAndSanitizeItem = [
     body('title').trim().escape(),
-    body('condition').trim().escape(),
-    body('price').trim().escape(),
-    body('details').trim().escape(),
-    exports.validateItem
+    
+    body('price').trim().escape().isNumeric().withMessage('Item amount must be a number'),
+    body('details').trim().escape()
+];
+
+exports.validateAndSanitizeLogin = [
+    body('email').trim().escape(),
+    body('password').trim().escape()
+];
+
+exports.validateAndSanitizeSignup = [
+    body('firstName').trim().escape(),
+    body('lastName').trim().escape(),
+    body('email').trim().escape(),
+    body('password').trim().escape()
+];
+
+exports.validateAndSanitizeOffer = [
+    body('offerAmount').trim().escape().isNumeric().withMessage('Offer amount must be a number')
 ];
