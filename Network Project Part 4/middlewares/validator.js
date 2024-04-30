@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 // validator.js
 const mongoose = require('mongoose');
@@ -74,24 +74,55 @@ exports.validateItem = (req, res, next) => {
 };
 
 exports.validateAndSanitizeItem = [
-    body('title').trim().escape(),
-    
+    body('title').trim().escape().notEmpty().withMessage('Title is required'),
     body('price').trim().escape().isNumeric().withMessage('Item amount must be a number'),
-    body('details').trim().escape()
+    body('details').trim().escape().notEmpty().withMessage('Details are required'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array()[0].msg);
+            return res.redirect('/items/new');
+        }
+        next();
+    }
 ];
 
 exports.validateAndSanitizeLogin = [
-    body('email').trim().escape(),
-    body('password').trim().escape()
+    body('email').trim().escape().isEmail().withMessage('Invalid email address'),
+    body('password').trim().escape().isLength({ min: 8, max: 64 }).withMessage('Password must be between 8 and 64 characters'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array()[0].msg);
+            return res.redirect('/user/login');
+        }
+        next();
+    }
 ];
 
 exports.validateAndSanitizeSignup = [
-    body('firstName').trim().escape(),
-    body('lastName').trim().escape(),
-    body('email').trim().escape(),
-    body('password').trim().escape()
+    body('firstName').trim().escape().notEmpty().withMessage('First name is required'),
+    body('lastName').trim().escape().notEmpty().withMessage('Last name is required'),
+    body('email').trim().escape().isEmail().withMessage('Invalid email address'),
+    body('password').trim().escape().isLength({ min: 8, max: 64 }).withMessage('Password must be between 8 and 64 characters'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array()[0].msg);
+            return res.redirect('user/newuser');
+        }
+        next();
+    }
 ];
 
 exports.validateAndSanitizeOffer = [
-    body('offerAmount').trim().escape().isNumeric().withMessage('Offer amount must be a number')
+    body('offerAmount').trim().escape().isNumeric().withMessage('Offer amount must be a number'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array()[0].msg);
+            return res.redirect('/offer/new');
+        }
+        next();
+    }
 ];
